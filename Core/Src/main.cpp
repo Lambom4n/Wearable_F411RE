@@ -26,6 +26,7 @@
 #include "SX1261.h"
 #include "stm32RadioHal.h"
 #include "FreeRTOS.h"
+#include "LoRa.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,9 +68,9 @@ const osThreadAttr_t defaultTask_attributes = {
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI3_Init(void);
-static void MX_USART2_UART_Init(void);
 static void MX_I2C2_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -78,10 +79,15 @@ void StartDefaultTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void blinkyTask(void* param) {
-  while(1) {
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-    osDelay(1000);
+void print_hello(void *param)
+{
+  char test_str[20] = "Hello UART\n";
+  float count = 0.5;
+  while (1)
+  {
+    count++;
+    custom_printf("Hello %.2f\n", count);
+    osDelay(100);
   }
 }
 /* USER CODE END 0 */
@@ -116,10 +122,15 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI3_Init();
-  MX_USART2_UART_Init();
   MX_I2C2_Init();
   MX_TIM1_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+  
+    IMU_init();
+    IMU_Calibrate_Accel_Gyro();
+    IMU_Calibrate_Mag();
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -143,10 +154,11 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
+  
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  xTaskCreate(blinkyTask, "blinky task", 200, nullptr, 1, nullptr);
+  xTaskCreate(IMU_Task, "IMU_Task", 600, nullptr, 1, nullptr);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -200,8 +212,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
+  /* Initializes the CPU, AHB and APB buses clocks */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;

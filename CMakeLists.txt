@@ -53,11 +53,15 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/IMU_9250.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/LoRa.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/custom_printf.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
 )
 
 # Add project symbols (macros)
@@ -73,4 +77,8 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     # Add user defined libraries
 )
 
-
+# Enable floating-point support in printf
+target_link_options(${PROJECT_NAME} PRIVATE
+    -u _printf_float       # Required for %f support
+    -specs=nosys.specs     # Disable semihosting
+)

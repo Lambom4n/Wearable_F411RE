@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "sx1261.h": "c"
-    }
+    },
+    "cortex-debug.variableUseNaturalFormat": true
 }

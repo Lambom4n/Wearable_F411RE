@@ -48,9 +48,6 @@
 /* USER CODE END Includes */
 
 /* Ensure definitions are only used by the compiler, and not by the assembler. */
-#include "main.h"
-extern TIM_HandleTypeDef htim1;
-
 #if defined(__ICCARM__) || defined(__CC_ARM) || defined(__GNUC__)
   #include <stdint.h>
   extern uint32_t SystemCoreClock;
@@ -119,9 +116,6 @@ to exclude the API function. */
 #define INCLUDE_uxTaskGetStackHighWaterMark  1
 #define INCLUDE_xTaskGetCurrentTaskHandle    1
 #define INCLUDE_eTaskGetState                1
-#define configGENERATE_RUN_TIME_STATS           1
-#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() void
-#define portGET_RUN_TIME_COUNTER_VALUE()        __HAL_TIM_GET_COUNTER(&htim1)
 
 /*
  * The CMSIS-RTOS V2 FreeRTOS wrapper is dependent on the heap implementation used
