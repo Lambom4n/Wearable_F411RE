@@ -126,10 +126,10 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  
-    IMU_init();
-    IMU_Calibrate_Accel_Gyro();
-    IMU_Calibrate_Mag();
+    LoRa_Init();
+    // IMU_init();
+    // IMU_Calibrate_Accel_Gyro();
+    // IMU_Calibrate_Mag();
 
   /* USER CODE END 2 */
 
@@ -158,7 +158,8 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  xTaskCreate(IMU_Task, "IMU_Task", 600, nullptr, 1, nullptr);
+  // xTaskCreate(IMU_Task, "IMU_Task", 600, nullptr, 1, nullptr);
+  xTaskCreate(LoRa_Task_receive, "LoRa_Task_receive", 600, nullptr, 1, nullptr);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */

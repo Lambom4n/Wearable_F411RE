@@ -13,6 +13,7 @@ extern "C" {
 void LoRa_Init(void);
 void LoRa_Send(uint8_t *data, uint8_t length);
 void LoRa_Receive(uint8_t *data, uint8_t length);
-void LoRa_Task(void *pvParameters);
+void LoRa_Task_send(void *pvParameters);
+void LoRa_Task_receive(void *pvParameters);
 
 #endif

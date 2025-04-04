@@ -106,7 +106,7 @@ void IMU_Calibrate_Accel_Gyro(void)
     int16_t gx = 0, gy = 0, gz = 0;
     int32_t sum_ax = 0, sum_ay = 0, sum_az = 0;
     int32_t sum_gx = 0, sum_gy = 0, sum_gz = 0;
-    int32_t count = 100;
+    int32_t count = 1000;
     custom_printf("Calibrating accelerometer and gyroscope...\n");
 
     // Collect 1000 samples
@@ -303,10 +303,10 @@ void IMU_Task(void *param)
     float mx, my, mz;
     while (1)
     {
-        // IMU_Read_Accel(&ax, &ay, &az);
-        // IMU_Read_Gyro(&gx, &gy, &gz);
+        IMU_Read_Accel(&ax, &ay, &az);
+        IMU_Read_Gyro(&gx, &gy, &gz);
         IMU_Read_Mag(&mx, &my, &mz);
         custom_printf("--------------------------------\n");
-        vTaskDelay(pdMS_TO_TICKS(500));
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
