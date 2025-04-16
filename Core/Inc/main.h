@@ -33,6 +33,8 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "custom_printf.h"
 #include "IMU_9250.h"
+#include "FreeRTOS.h"
+#include "semphr.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -58,14 +60,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LD2_Pin GPIO_PIN_5
-#define LD2_GPIO_Port GPIOA
 #define BUSY_Pin GPIO_PIN_12
 #define BUSY_GPIO_Port GPIOB
 #define RESET_Pin GPIO_PIN_14
 #define RESET_GPIO_Port GPIOB
-#define NSS_Pin GPIO_PIN_15
-#define NSS_GPIO_Port GPIOB
+#define NSS_SPI3_Pin GPIO_PIN_15
+#define NSS_SPI3_GPIO_Port GPIOB
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14

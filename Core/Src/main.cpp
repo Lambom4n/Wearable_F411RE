@@ -25,7 +25,6 @@
 #include "RadioLib.h"
 #include "SX1261.h"
 #include "stm32RadioHal.h"
-#include "FreeRTOS.h"
 #include "LoRa.h"
 /* USER CODE END Includes */
 
@@ -61,7 +60,7 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
+SemaphoreHandle_t Transmit_receive_mutex = NULL;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -79,17 +78,7 @@ void StartDefaultTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void print_hello(void *param)
-{
-  char test_str[20] = "Hello UART\n";
-  float count = 0.5;
-  while (1)
-  {
-    count++;
-    custom_printf("Hello %.2f\n", count);
-    osDelay(100);
-  }
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -126,11 +115,7 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-    LoRa_Init();
-    // IMU_init();
-    // IMU_Calibrate_Accel_Gyro();
-    // IMU_Calibrate_Mag();
-
+  LoRa_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -138,6 +123,11 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
+  Transmit_receive_mutex = xSemaphoreCreateMutex();
+  if (Transmit_receive_mutex == NULL) {
+    // Handle error
+    Error_Handler();
+  }
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -154,12 +144,10 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  
+  xTaskCreate(LoRa_Calibrate_RSSI_rx, "LoRa_Calibrate_RSSI_rx", 512, NULL, 1, NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  // xTaskCreate(IMU_Task, "IMU_Task", 600, nullptr, 1, nullptr);
-  xTaskCreate(LoRa_Task_receive, "LoRa_Task_receive", 600, nullptr, 1, nullptr);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -213,7 +201,8 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 
-  /* Initializes the CPU, AHB and APB buses clocks */
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
@@ -404,10 +393,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, RESET_Pin|NSS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, RESET_Pin|NSS_SPI3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PC13 PC0 PC1 PC2
                            PC3 PC4 PC5 PC6
@@ -419,22 +405,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 PA4 PA6
-                           PA7 PA8 PA9 PA10
-                           PA11 PA12 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_6
-                          |GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10
-                          |GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_15;
+  /*Configure GPIO pins : PA0 PA1 PA4 PA5
+                           PA6 PA7 PA8 PA9
+                           PA10 PA11 PA12 PA15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5
+                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9
+                          |GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : LD2_Pin */
-  GPIO_InitStruct.Pin = LD2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB0 PB1 PB2 PB4
                            PB5 PB6 PB7 PB8 */
@@ -456,8 +435,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : RESET_Pin NSS_Pin */
-  GPIO_InitStruct.Pin = RESET_Pin|NSS_Pin;
+  /*Configure GPIO pins : RESET_Pin NSS_SPI3_Pin */
+  GPIO_InitStruct.Pin = RESET_Pin|NSS_SPI3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

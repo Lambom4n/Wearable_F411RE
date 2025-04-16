@@ -41,31 +41,47 @@ void IMU_init()
     }
     HAL_Delay(10); // Wait for stabilization
 
+    settings = 0x80; // Reset device
+    status = HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, PWR_MGMT_1, 1, &settings, 1, HAL_MAX_DELAY);
+    if (status != HAL_OK)
+    {
+        custom_printf("Error resetting MPU-9250\n");
+        return;
+    }
+    HAL_Delay(10); // Wait for reset
     // Configure gyroscope
     settings = 0x08; // Range: ±500 degrees/sec and F_CHOICE_B = 0b00
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, GYRO_CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
     HAL_Delay(10);
 
+    HAL_I2C_Mem_Read(&hi2c2, MPU9250_ADDRESS << 1, GYRO_CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    custom_printf("GYRO_CONFIG: %02X\n", settings);
     // Configure accelerometer
     settings = 0x08; // Range: ±4g
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, ACCEL_CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
     HAL_Delay(10);
+    HAL_I2C_Mem_Read(&hi2c2, MPU9250_ADDRESS << 1, ACCEL_CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    custom_printf("ACCEL_CONFIG: %02X\n", settings);
 
     settings = 0x08;
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, ACCEL_CONFIG_2, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
     HAL_Delay(10);
+    HAL_I2C_Mem_Read(&hi2c2, MPU9250_ADDRESS << 1, ACCEL_CONFIG_2, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    custom_printf("ACCEL_CONFIG_2: %02X\n", settings);
 
     // Configure low pass filter
     settings = 0x04; // Bandwidth: 20Hz
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, 1000);
     HAL_Delay(10);
-
+    HAL_I2C_Mem_Read(&hi2c2, MPU9250_ADDRESS << 1, CONFIG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    custom_printf("CONFIG: %02X\n", settings);
     // Configure magnetometer
     // First enable I2C bypass to access AK8963
     settings = 0x02;
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, INT_PIN_CFG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
     HAL_Delay(10);
-
+    HAL_I2C_Mem_Read(&hi2c2, MPU9250_ADDRESS << 1, INT_PIN_CFG, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    custom_printf("INT_PIN_CFG: %02X\n", settings);
     // set fuse ROM access
     settings = 0x0F;
     HAL_I2C_Mem_Write(&hi2c2, AK8963_ADDRESS << 1, AK8963_CNTL1, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
@@ -79,17 +95,17 @@ void IMU_init()
     {
         custom_printf("Error reading magnetometer sensitivity\n");
     }
-
+    
     for (int i = 0; i < 3; i++)
     {
         mag_sensitivity[i] = ((mag_sensitivity_data[i] - 128) * 0.5 / 128) + 1;
     }
     HAL_Delay(10);
     // Set magnetometer to continuous measurement mode
-    // // Reset first
-    // settings = 0x01;
-    // HAL_I2C_Mem_Write(&hi2c2, AK8963_ADDRESS << 1, AK8963_CNTL2, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
-    // HAL_Delay(10); // Wait for reset
+    // Reset first
+    settings = 0x01;
+    HAL_I2C_Mem_Write(&hi2c2, AK8963_ADDRESS << 1, AK8963_CNTL2, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
+    HAL_Delay(10); // Wait for reset
     // Then set mode
     settings = 0x12; // 0x12 = 16-bit resolution + continuous mode 1 (8Hz)
     status = HAL_I2C_Mem_Write(&hi2c2, AK8963_ADDRESS << 1, AK8963_CNTL1, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
@@ -106,14 +122,14 @@ void IMU_Calibrate_Accel_Gyro(void)
     int16_t gx = 0, gy = 0, gz = 0;
     int32_t sum_ax = 0, sum_ay = 0, sum_az = 0;
     int32_t sum_gx = 0, sum_gy = 0, sum_gz = 0;
-    int32_t count = 1000;
+    int32_t count = 100;
     custom_printf("Calibrating accelerometer and gyroscope...\n");
 
     // Collect 1000 samples
     for (int i = 0; i < count; i++)
     {
         IMU_Read_Accel_Raw(&ax, &ay, &az);
-        HAL_Delay(1);
+        HAL_Delay(10);
         IMU_Read_Gyro_Raw(&gx, &gy, &gz);
         sum_ax += ax;
         sum_ay += ay;
@@ -121,7 +137,7 @@ void IMU_Calibrate_Accel_Gyro(void)
         sum_gx += gx;
         sum_gy += gy;
         sum_gz += gz;
-        HAL_Delay(1);
+        HAL_Delay(10);
     }
 
     // Calculate offsets
@@ -146,7 +162,7 @@ void IMU_Calibrate_Mag(void)
     int16_t mag_min[3] = {32767, 32767, 32767};
     custom_printf("Calibrating magnetometer...\n");
     uint32_t start_time = HAL_GetTick();
-    while (HAL_GetTick() - start_time < 15000)
+    while (HAL_GetTick() - start_time < 10000)
     {
         IMU_Read_Mag_Raw(&mx, &my, &mz);
         if (mx < mag_min[0])
@@ -277,6 +293,7 @@ void IMU_Read_Mag_Raw(int16_t *mx, int16_t *my, int16_t *mz)
     *mx = (int16_t)(data[1] << 8 | data[0]) * mag_sensitivity[0];
     *my = (int16_t)(data[3] << 8 | data[2]) * mag_sensitivity[1];
     *mz = (int16_t)(data[5] << 8 | data[4]) * mag_sensitivity[2];
+    HAL_Delay(10);
     uint8_t settings = 0x12;
     HAL_I2C_Mem_Write(&hi2c2, AK8963_ADDRESS << 1, AK8963_CNTL1, I2C_MEMADD_SIZE_8BIT, &settings, 1, HAL_MAX_DELAY);
 }
@@ -294,6 +311,7 @@ void IMU_Read_Mag(float *mx, float *my, float *mz)
     *my = cal_my * mag_division_factor;
     *mz = cal_mz * mag_division_factor;
     custom_printf("mx: %f, my: %f, mz: %f\n", *mx, *my, *mz);
+    vTaskDelay(pdMS_TO_TICKS(10));
 }
 
 void IMU_Task(void *param)

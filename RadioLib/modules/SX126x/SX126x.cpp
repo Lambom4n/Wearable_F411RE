@@ -253,7 +253,7 @@ int16_t SX126x::receive(uint8_t* data, size_t len) {
   int16_t state = standby();
   RADIOLIB_ASSERT(state);
 
-  RadioLibTime_t timeout = 0;
+  RadioLibTime_t timeout = 5000;
 
   // get currently active modem
   uint8_t modem = getPacketType();

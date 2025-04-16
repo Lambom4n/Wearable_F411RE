@@ -35,6 +35,18 @@
 #define GYRO_XOUT_H       (0x43)
 
 
+typedef struct
+{
+    float ax;
+    float ay;
+    float az;
+    float gx;
+    float gy;
+    float gz;
+    float mx;
+    float my;
+    float mz;
+}IMU_Data_t;
 
 /*IMU Initialization*/
 void IMU_init(void);

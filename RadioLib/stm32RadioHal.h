@@ -2,6 +2,7 @@
 #define STM32_RADIO_HAL_H
 
 #include "Hal.h"
+#include "FreeRTOS.h"
 
 class STM32RadioHal : public RadioLibHal {
   public:

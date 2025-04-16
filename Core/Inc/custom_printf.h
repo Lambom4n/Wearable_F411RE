@@ -9,5 +9,5 @@
 
 // Function prototype
 void custom_printf(const char *format, ...);
-
+void custom_scanf(const char *format, ...);
 #endif
