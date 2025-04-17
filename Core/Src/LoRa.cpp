@@ -11,15 +11,15 @@ SX1261 lora = new Module(&hal, 15, 13, 14, 12);
 
 #define TX_POWER 14.0f
 #define FREQUENCY 433.0f
-#define PATH_LOSS_EXPONENT_LOW 1.9f
-#define PATH_LOSS_EXPONENT_MEDIUM 2.2f
+#define PATH_LOSS_EXPONENT_LOW 1.5f
+#define PATH_LOSS_EXPONENT_MEDIUM 1.8f
 #define PATH_LOSS_EXPONENT_HIGH 3.0f
 #define CALIBRATION_DISTANCE 1.0f
 #define CALIBRATION_COUNT 20
 #define WINDOW_SIZE 5
 #define OUTLIER_THRESHOLD 2.0 // Mean ± 2 sigma
 
-#define EMA_ALPHA 0.4 // Adjust for smoothing (0 < alpha < 1)
+#define EMA_ALPHA 0.5 // Adjust for smoothing (0 < alpha < 1)
 
 float pl_1m = 90.0f;
 
@@ -275,7 +275,7 @@ void LoRa_Calibrate_RSSI_rx(void *pvParameters)
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
     rssi = rssi_sum / count_receive;
-    pl_1m = -rssi - 3.0f;
+    pl_1m = -rssi;
     custom_printf("RSSI: %.2f\n", rssi);
     custom_printf("pl_1m: %.2f\n", pl_1m);
     custom_printf("Calibration done\n");
