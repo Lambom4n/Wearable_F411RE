@@ -56,6 +56,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/IMU_9250.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/LoRa.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/custom_printf.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/MadgwickAHRS.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/quaternion_example.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/quaternion.cpp
 )
 
 # Add include paths
