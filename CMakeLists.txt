@@ -59,6 +59,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/MadgwickAHRS.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/quaternion_example.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/quaternion.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/compute_direction.cpp
 )
 
 # Add include paths
