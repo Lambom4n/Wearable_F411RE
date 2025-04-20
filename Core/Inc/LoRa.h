@@ -15,5 +15,5 @@ void LoRa_Send(uint8_t *data, uint8_t length);
 void LoRa_Receive(uint8_t *data, uint8_t length);
 void LoRa_Task_send(void *pvParameters);
 void LoRa_Task_receive(void *pvParameters);
-
+extern float received_yaw_b; // Global variable to store received yaw value
 #endif
