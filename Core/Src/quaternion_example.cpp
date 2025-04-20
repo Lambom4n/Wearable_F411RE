@@ -1,3 +1,5 @@
+// quaternion_example.cpp
+//  ******************************************************************************
 #include "quaternion_example.h"
 // Example task that uses the quaternion filter and prints the data
 void QuaternionExample_Task(void *param)
