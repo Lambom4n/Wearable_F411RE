@@ -132,6 +132,7 @@ int main(void)
   IMU_init();
   IMU_Calibrate_Accel_Gyro();
   IMU_Calibrate_Mag();
+  set_yaw_offset();
   // Start the quaternion example task
 
   /* USER CODE END 2 */

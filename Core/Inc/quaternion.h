@@ -25,7 +25,7 @@ float quaternion_get_roll_imu_radians();
 float quaternion_get_pitch_imu_radians();
 float quaternion_get_yaw_imu_radians();
 void quaternion_print_data();  // Function to print the quaternion-filtered data
-
+void set_yaw_offset();  // Function to set the yaw offset
 #endif
 
 
