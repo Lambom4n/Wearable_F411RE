@@ -252,7 +252,7 @@ void LoRa_Calibrate_RSSI_tx_1(void *pvParameters)
     while (xTaskGetTickCount() - start_time < 15000)
     {
         LoRa_Send((uint8_t *)data, sizeof(data));
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1100)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1200)); // Send every 1 second
     }
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
@@ -274,7 +274,7 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
             rssi_sum += rssi;
             count_receive++;
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(450)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(250)); // Receive every 1 second
     }
     rssi = rssi_sum / count_receive;
     pl_1m = -rssi;
@@ -305,7 +305,7 @@ void LoRa_Task_send_1(void *pvParameters)
         // memcpy(data, &yaw_data, sizeof(yaw_data));
         // custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t *)example_data, sizeof(example_data));
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1100)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1200)); // Send every 1 second
     }
 }
 
@@ -326,7 +326,7 @@ void LoRa_Task_receive_1(void *pvParameters)
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(450)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(250)); // Receive every 1 second
     }
 }
 
@@ -339,7 +339,7 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     while (xTaskGetTickCount() - start_time < 15000)
     {
         LoRa_Send((uint8_t *)data, sizeof(data));
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(900)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1700)); // Send every 1 second
     }
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
@@ -361,7 +361,7 @@ void LoRa_Calibrate_RSSI_rx_2(void *pvParameters)
             rssi_sum += rssi;
             count_receive++;
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(550)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(250)); // Receive every 1 second
     }
     rssi = rssi_sum / count_receive;
     pl_1m = -rssi;
@@ -392,7 +392,7 @@ void LoRa_Task_send_2(void *pvParameters)
         // memcpy(data, &yaw_data, sizeof(yaw_data));
         // custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t *)example_data, sizeof(example_data));
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(900)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1700)); // Send every 1 second
     }
 }
 
@@ -413,6 +413,6 @@ void LoRa_Task_receive_2(void *pvParameters)
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(550)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(250)); // Receive every 1 second
     }
 }
