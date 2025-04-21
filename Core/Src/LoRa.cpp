@@ -141,6 +141,7 @@ void LoRa_Init(void)
     {
         // There was a problem initializing the module
         // You may want to handle this error condition
+        custom_printf("Error initializing LoRa module\n");
         return;
     }
     // Set path loss exponent based on environment
@@ -203,7 +204,7 @@ float LoRa_Get_Distance(float rssi, float snr)
     return distance;
 }
 
-void LoRa_Receive(uint8_t *data, uint8_t length, float* distance)
+void LoRa_Receive(uint8_t *data, uint8_t length, float* distance, float *rssi)
 {
     // Receive data through LoRa module
     xSemaphoreTake(Transmit_receive_mutex, portMAX_DELAY);
@@ -217,17 +218,6 @@ void LoRa_Receive(uint8_t *data, uint8_t length, float* distance)
             xSemaphoreGive(Transmit_receive_mutex);
             custom_printf("Timeout receiving data\n");
             return;
-            // uint32_t start_time = xTaskGetTickCount();
-            // while(status != RADIOLIB_ERR_NONE && xTaskGetTickCount() - start_time < 1000) {
-            //     status = lora.receive(data, length);
-            //     vTaskDelay(pdMS_TO_TICKS(100));
-            // }
-            // if (status != RADIOLIB_ERR_NONE) {
-
-            //     xSemaphoreGive(Transmit_receive_mutex);
-            //     custom_printf("Timeout receiving data\n");
-            //     return;
-            // }
         }
         else
         {
@@ -237,7 +227,7 @@ void LoRa_Receive(uint8_t *data, uint8_t length, float* distance)
         }
     }
     xSemaphoreGive(Transmit_receive_mutex);
-    float rssi = lora.getRSSI();
+    *rssi = lora.getRSSI();
     float snr = lora.getSNR();
     custom_printf("data received: ");
     for (uint8_t i = 0; i < length; i++)
@@ -250,16 +240,16 @@ void LoRa_Receive(uint8_t *data, uint8_t length, float* distance)
     //     custom_printf("%d ", data[i]);
     // }
     // custom_printf("\n");
-    *distance = LoRa_Get_Distance(rssi, snr);
-    custom_printf("RSSI: %.2f\n", rssi);
+    *distance = LoRa_Get_Distance(*rssi, snr);
+    custom_printf("RSSI: %.2f\n", *rssi);
     custom_printf("Distance: %.2f\n\n", *distance);
 }
 
 void LoRa_Calibrate_RSSI_tx(void *pvParameters)
 {
-    uint8_t data[5] = {0x01, 0x02, 0x03, 0x04, 0x05};
+    uint8_t data[4] = {0x01, 0x02, 0x03, 0x04};
     uint32_t start_time = xTaskGetTickCount();
-    while (xTaskGetTickCount() - start_time < 15000)
+    while (xTaskGetTickCount() - start_time < 16000)
     {
         LoRa_Send((uint8_t *)data, sizeof(data));
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -277,12 +267,13 @@ void LoRa_Calibrate_RSSI_rx(void *pvParameters)
 {
     float rssi_sum = 0.0f;
     float rssi = 0.0f;
+    float distance = 0.0f;
     uint8_t data[5];
     uint8_t count_receive = 0;
     TickType_t start_time = xTaskGetTickCount();
     while (xTaskGetTickCount() - start_time < 15000)
     {
-        LoRa_Receive(data, sizeof(data), &rssi);
+        LoRa_Receive(data, sizeof(data), &distance, &rssi);
         rssi_sum += rssi;
         count_receive++;
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -316,7 +307,7 @@ void LoRa_Task_send(void *pvParameters)
     {   
         // xQueueReceive(transmit_queue, &yaw_data, portMAX_DELAY);
         // memcpy(data, &yaw_data, sizeof(yaw_data));
-        custom_printf("Sending data: %.2f\n", yaw_data);
+        // custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t*)example_data, sizeof(example_data));
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
@@ -327,11 +318,12 @@ void LoRa_Task_receive(void *pvParameters)
     uint8_t data_receive[4] = {0};
     float distance = 0.0f;
     float yaw_data = 0.0f;
+    float rssi = 0.0f;
     distance_queue = xQueueCreate(8, sizeof(float));
     receive_queue = xQueueCreate(8, sizeof(float));
     while (1)
     {
-        LoRa_Receive(data_receive, sizeof(data_receive), &distance);
+        LoRa_Receive(data_receive, sizeof(data_receive), &distance, &rssi);
         memcpy(&yaw_data, data_receive, sizeof(yaw_data));
         xQueueSend(distance_queue, &distance, 0);
         xQueueSend(receive_queue, &yaw_data, 0);
