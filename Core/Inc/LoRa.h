@@ -9,7 +9,11 @@
 extern "C" {
 #include "FreeRTOS.h"
 #include "custom_printf.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
 }
+
 
 void LoRa_Init(void);
 void LoRa_Send(uint8_t *data, uint8_t length);

@@ -1,13 +1,17 @@
 #include "LoRa.h"
-#include "FreeRTOS.h"
-#include "task.h"
-#include "semphr.h"
+
 
 extern SemaphoreHandle_t Transmit_receive_mutex;
 extern UART_HandleTypeDef huart2;
 
 STM32RadioHal hal(0, 1, 0, 1, 1, 0);
 SX1261 lora = new Module(&hal, 15, 13, 14, 12);
+
+
+QueueHandle_t distance_queue = NULL;
+QueueHandle_t receive_queue = NULL;
+QueueHandle_t transmit_queue = NULL;
+
 
 #define TX_POWER 14.0f
 #define FREQUENCY 433.0f
@@ -123,7 +127,7 @@ void LoRa_Init(void)
 {
     // Initialize LoRa module
     int state = lora.begin(
-        433.0, // Frequency (MHz)
+        FREQUENCY, // Frequency (MHz)
         125.0, // Bandwidth (kHz)
         12,    // Spreading Factor
         7,     // Coding Rate (4/7)
@@ -141,8 +145,8 @@ void LoRa_Init(void)
     }
     // Set path loss exponent based on environment
     custom_printf("Select path loss exponent:\n");
-    custom_printf("1. Low (1.4)\n");
-    custom_printf("2. Medium (2.2)\n");
+    custom_printf("1. Low (1.5)\n");
+    custom_printf("2. Medium (1.8)\n");
     custom_printf("3. High (3.0)\n");
     custom_printf("Enter choice: ");
     uint8_t level = 0;
@@ -152,12 +156,12 @@ void LoRa_Init(void)
     if (strcmp((char *)&level, "1") == 0)
     {
         PATH_LOSS_EXPONENT = PATH_LOSS_EXPONENT_LOW;
-        custom_printf("Path loss exponent set to Low (1.3)\n");
+        custom_printf("Path loss exponent set to Low (1.5)\n");
     }
     else if (strcmp((char *)&level, "2") == 0)
     {
         PATH_LOSS_EXPONENT = PATH_LOSS_EXPONENT_MEDIUM;
-        custom_printf("Path loss exponent set to Medium (2.2)\n");
+        custom_printf("Path loss exponent set to Medium (1.8)\n");
     }
     else if (strcmp((char *)&level, "3") == 0)
     {
@@ -166,7 +170,7 @@ void LoRa_Init(void)
     }
     else
     {
-        custom_printf("Invalid choice. Defaulting to Medium (2.2)\n");
+        custom_printf("Invalid choice. Defaulting to Medium (1.8))\n");
     }
     custom_printf("LoRa module initialized\n");
 }
@@ -199,7 +203,7 @@ float LoRa_Get_Distance(float rssi, float snr)
     return distance;
 }
 
-void LoRa_Receive(uint8_t *data, uint8_t length, float *rssi)
+void LoRa_Receive(uint8_t *data, uint8_t length, float* distance)
 {
     // Receive data through LoRa module
     xSemaphoreTake(Transmit_receive_mutex, portMAX_DELAY);
@@ -233,18 +237,22 @@ void LoRa_Receive(uint8_t *data, uint8_t length, float *rssi)
         }
     }
     xSemaphoreGive(Transmit_receive_mutex);
-    *rssi = lora.getRSSI();
+    float rssi = lora.getRSSI();
     float snr = lora.getSNR();
+    custom_printf("data received: ");
+    for (uint8_t i = 0; i < length; i++)
+    {
+        custom_printf("%d ", data[i]);
+    }
     custom_printf("SNR: %.2f\n", snr);
     // custom_printf("Received data:\n");
     // for (uint8_t i = 0; i < length; i++) {
     //     custom_printf("%d ", data[i]);
     // }
     // custom_printf("\n");
-    uint16_t data16 = (data[0] << 8) | data[1];
-    float distance = LoRa_Get_Distance(*rssi, snr);
-    custom_printf("RSSI: %.2f\n", *rssi);
-    custom_printf("Distance: %.2f\n\n", distance);
+    *distance = LoRa_Get_Distance(rssi, snr);
+    custom_printf("RSSI: %.2f\n", rssi);
+    custom_printf("Distance: %.2f\n\n", *distance);
 }
 
 void LoRa_Calibrate_RSSI_tx(void *pvParameters)
@@ -256,7 +264,12 @@ void LoRa_Calibrate_RSSI_tx(void *pvParameters)
         LoRa_Send((uint8_t *)data, sizeof(data));
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
-    custom_printf("Calibration done\n");
+    custom_printf("Calibration done tx\n");
+    BaseType_t status = xTaskCreate(LoRa_Task_send, "LoRa_Task_send", 512, NULL, 1, NULL);
+    if( status != pdPASS)
+    {
+        custom_printf("Failed to create LoRa_Task_send\n");
+    }
     vTaskDelete(NULL);
 }
 
@@ -278,13 +291,13 @@ void LoRa_Calibrate_RSSI_rx(void *pvParameters)
     pl_1m = -rssi;
     custom_printf("RSSI: %.2f\n", rssi);
     custom_printf("pl_1m: %.2f\n", pl_1m);
-    custom_printf("Calibration done\n");
+    custom_printf("Calibration done rx\n");
     custom_printf("----------------------\n");
     custom_printf("create main application\n");
     custom_printf("----------------------\n");
     swf_init(&swf);
-    ema_init(&ema, pl_1m); // Initialize EMA filter with initial value 0.0
-    BaseType_t status = xTaskCreate(LoRa_Task_receive, "LoRa_Task_receive", 2048, NULL, 1, NULL);
+    ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
+    BaseType_t status = xTaskCreate(LoRa_Task_receive, "LoRa_Task_receive", 512, NULL, 1, NULL);
     if (status != pdPASS)
     {
         custom_printf("Failed to create LoRa_Task_receive\n");
@@ -295,29 +308,33 @@ void LoRa_Calibrate_RSSI_rx(void *pvParameters)
 void LoRa_Task_send(void *pvParameters)
 {
     // Task for LoRa communication
-    uint8_t data[10] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A};
+    uint8_t example_data[4] = {0x01, 0x02, 0x03, 0x04};
+    uint8_t data[4] = {0};
+    float yaw_data = 0.0f;
+    transmit_queue = xQueueCreate(8, sizeof(float));
     while (1)
-    {
-        LoRa_Send(data, sizeof(data));
-        custom_printf("Sent data:");
-        for (uint8_t i = 0; i < sizeof(data); i++)
-        {
-            custom_printf("%02X ", data[i]);
-        }
-        custom_printf("\n");
+    {   
+        // xQueueReceive(transmit_queue, &yaw_data, portMAX_DELAY);
+        // memcpy(data, &yaw_data, sizeof(yaw_data));
+        custom_printf("Sending data: %.2f\n", yaw_data);
+        LoRa_Send((uint8_t*)example_data, sizeof(example_data));
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
 void LoRa_Task_receive(void *pvParameters)
 {
-    uint16_t data_receive = 0;
-    float rssi = 0.0f;
+    uint8_t data_receive[4] = {0};
+    float distance = 0.0f;
+    float yaw_data = 0.0f;
+    distance_queue = xQueueCreate(8, sizeof(float));
+    receive_queue = xQueueCreate(8, sizeof(float));
     while (1)
     {
-        // LoRa_Send((uint8_t*)&data_send, sizeof(data_send));
-
-        LoRa_Receive((uint8_t *)&data_receive, sizeof(data_receive), &rssi);
+        LoRa_Receive(data_receive, sizeof(data_receive), &distance);
+        memcpy(&yaw_data, data_receive, sizeof(yaw_data));
+        xQueueSend(distance_queue, &distance, 0);
+        xQueueSend(receive_queue, &yaw_data, 0);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
