@@ -253,7 +253,7 @@ void LoRa_Calibrate_RSSI_tx_1(void *pvParameters)
     {
         LoRa_Send((uint8_t *)data, sizeof(data));
         data[0]++;
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1200)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(2200)); // Send every 1 second
     }
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
@@ -307,7 +307,7 @@ void LoRa_Task_send_1(void *pvParameters)
         // custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t *)example_data, sizeof(example_data));
         example_data[0]++;
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1200)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(2200)); // Send every 1 second
     }
 }
 
@@ -342,7 +342,7 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     {   
         LoRa_Send((uint8_t *)data, sizeof(data));
         data[0]++;
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1000)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(2000)); // Send every 1 second
     }
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
@@ -396,7 +396,7 @@ void LoRa_Task_send_2(void *pvParameters)
         // custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t *)example_data, sizeof(example_data));
         example_data[0]++;
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1000)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(2000)); // Send every 1 second
     }
 }
 
