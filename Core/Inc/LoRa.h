@@ -18,10 +18,14 @@ extern "C" {
 void LoRa_Init(void);
 void LoRa_Send(uint8_t *data, uint8_t length);
 void LoRa_Receive(uint8_t *data, uint8_t length);
-void LoRa_Task_send(void *pvParameters);
-void LoRa_Task_receive(void *pvParameters);
-void LoRa_Calibrate_RSSI_tx(void* pvParameters);
-void LoRa_Calibrate_RSSI_rx(void* pvParameters);
+void LoRa_Task_send_1(void *pvParameters);
+void LoRa_Task_receive_1(void *pvParameters);
+void LoRa_Calibrate_RSSI_tx_1(void* pvParameters);
+void LoRa_Calibrate_RSSI_rx_1(void* pvParameters);
+void LoRa_Task_send_2(void *pvParameters);
+void LoRa_Task_receive_2(void *pvParameters);
+void LoRa_Calibrate_RSSI_tx_2(void* pvParameters);
+void LoRa_Calibrate_RSSI_rx_2(void* pvParameters);
 float LoRa_Get_Distance(float rssi, float snr);
 
 

@@ -144,8 +144,8 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  xTaskCreate(LoRa_Calibrate_RSSI_tx, "LoRa_Calibrate_RSSI_tx", 512, NULL, 1, NULL);
-  xTaskCreate(LoRa_Calibrate_RSSI_rx, "LoRa_Calibrate_RSSI_rx", 512, NULL, 1, NULL);
+  xTaskCreate(LoRa_Calibrate_RSSI_tx_1, "LoRa_Calibrate_RSSI_tx", 512, NULL, 3, NULL);
+  xTaskCreate(LoRa_Calibrate_RSSI_rx_1, "LoRa_Calibrate_RSSI_rx", 512, NULL, 3, NULL);
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
