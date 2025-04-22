@@ -95,3 +95,13 @@
 2024	2395	7669952681288998	RadioLib/CMakeFiles/RadioLib.dir/__/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj	fac13a46e61d2d0f
 2395	2696	7669952684294309	RadioLib/libRadioLib.a	287751a348fb92e6
 2696	3068	7669952687387096	Wearable_F411RE.elf	891dafde38832e63
+8	385	7669956066938564	CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj	980b15c09f3c0220
+12	385	7669956066938564	RadioLib/CMakeFiles/RadioLib.dir/__/Core/Src/main.cpp.obj	85d57e33691e7cc2
+385	622	7669956069290310	RadioLib/libRadioLib.a	287751a348fb92e6
+622	850	7669956071030694	Wearable_F411RE.elf	891dafde38832e63
+16	378	7669957070639881	RadioLib/CMakeFiles/RadioLib.dir/__/Core/Src/main.cpp.obj	85d57e33691e7cc2
+11	387	7669957070709948	CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj	980b15c09f3c0220
+378	588	7669957072718861	RadioLib/libRadioLib.a	287751a348fb92e6
+588	823	7669957074483708	Wearable_F411RE.elf	891dafde38832e63
+6	372	7669960395946246	CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj	addf1ed63b27e5f6
+373	641	7669960398010017	Wearable_F411RE.elf	891dafde38832e63

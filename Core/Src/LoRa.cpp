@@ -291,7 +291,7 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
     custom_printf("----------------------\n");
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
-    BaseType_t status = xTaskCreate(LoRa_Task_send_1, "LoRa_Task_send", 512, NULL, 4, NULL);
+    BaseType_t status = xTaskCreate(LoRa_Task_send_1, "LoRa_Task_send", 512, NULL, 3, NULL);
     status = xTaskCreate(LoRa_Task_receive_1, "LoRa_Task_receive", 512, NULL, 3, NULL);
     vTaskDelete(NULL);
 }
@@ -379,7 +379,7 @@ void LoRa_Calibrate_RSSI_rx_2(void *pvParameters)
     custom_printf("----------------------\n");
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
-    BaseType_t status = xTaskCreate(LoRa_Task_send_2, "LoRa_Task_send", 512, NULL, 4, NULL);
+    BaseType_t status = xTaskCreate(LoRa_Task_send_2, "LoRa_Task_send", 512, NULL, 3, NULL);
     status = xTaskCreate(LoRa_Task_receive_2, "LoRa_Task_receive", 512, NULL, 3, NULL);
     vTaskDelete(NULL);
 }

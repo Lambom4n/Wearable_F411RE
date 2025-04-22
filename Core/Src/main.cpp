@@ -118,13 +118,13 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   // LoRa_Init();
-  IMU_init();
-  IMU_Calibrate_Accel_Gyro();
-  IMU_Calibrate_Mag();
-  set_yaw_offset();
+  LoRa_Init();
+  // IMU_init();
+  // IMU_Calibrate_Accel_Gyro();
+  // IMU_Calibrate_Mag();
+  // set_yaw_offset();
   // Start the quaternion example task
 
-  LoRa_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
