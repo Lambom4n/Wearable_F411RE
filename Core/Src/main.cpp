@@ -28,6 +28,7 @@
 #include "LoRa.h"
 #include "quaternion_example.h" // Include the quaternion example header
 #include "quaternion.h"
+#include "compute_direction.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,12 +118,11 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  // LoRa_Init();
   LoRa_Init();
-  // IMU_init();
-  // IMU_Calibrate_Accel_Gyro();
-  // IMU_Calibrate_Mag();
-  // set_yaw_offset();
+  IMU_init();
+  IMU_Calibrate_Accel_Gyro();
+  IMU_Calibrate_Mag();
+  set_yaw_offset();
   // Start the quaternion example task
 
   /* USER CODE END 2 */
@@ -153,9 +153,9 @@ int main(void)
 
   /* Create the thread(s) */
   /* creation of defaultTask */
-  xTaskCreate(LoRa_Calibrate_RSSI_rx_1, "LoRa_Calibrate_RSSI_rx", 512, NULL, 3, NULL);
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  xTaskCreate(LoRa_Calibrate_RSSI_rx_1, "LoRa_Calibrate_RSSI_rx", 512, NULL, 1, NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */

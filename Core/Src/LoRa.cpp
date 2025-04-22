@@ -277,6 +277,8 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
     BaseType_t status = xTaskCreate(LoRa_Task_receive_1, "LoRa_Task_receive", 512, NULL, 3, NULL);
+    xTaskCreate(quaternion_update_task, "quaternion_update", 512, NULL, 1, NULL);
+    xTaskCreate(display_task, "display_task", 512, NULL, 2, NULL);
     vTaskDelete(NULL);
 }
 
@@ -317,6 +319,8 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
     BaseType_t status = xTaskCreate(LoRa_Task_send_2, "LoRa_Task_send", 512, NULL, 3, NULL);
+    xTaskCreate(quaternion_update_task, "quaternion_update", 512, NULL, 1, NULL);
+    xTaskCreate(display_task, "display_task", 512, NULL, 2, NULL);
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
 }
@@ -334,8 +338,7 @@ void LoRa_Task_send_2(void *pvParameters)
         yaw_data = quaternion_get_yaw();
         memcpy(data, &yaw_data, sizeof(yaw_data));
         custom_printf("Sending data: %.2f\n", yaw_data);
-        LoRa_Send((uint8_t *)example_data, sizeof(example_data), SF_2_to_1);
-        example_data[0]++;
+        LoRa_Send((uint8_t *)data, sizeof(data), SF_2_to_1);
         vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Send every 1 second
     }
 }

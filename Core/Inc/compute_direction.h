@@ -13,7 +13,14 @@
 #define DIRECTION_LEFT           6
 #define DIRECTION_FORWARD_LEFT   7
 
+typedef struct
+{
+    uint8_t direction;
+    float distance;
+} DirectionData;
+
+
 uint8_t compute_direction();
-void direction_task(void *pvParameters);
+void display_task(void *pvParameters);
 
 #endif

@@ -7,6 +7,7 @@
 #include "stm32RadioHal.h"
 #include <math.h>
 #include "quaternion.h"
+#include "compute_direction.h"
 extern "C" {
 #include "FreeRTOS.h"
 #include "custom_printf.h"

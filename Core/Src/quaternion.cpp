@@ -156,13 +156,11 @@ void quaternion_print_data()
 }
 
 
-void get_yaw_task(void *pvParameters)
+void quaternion_update_task(void *pvParameters)
 {
-    float yaw = 0.0f;
-    TickType_t tickcount = xTaskGetTickCount();
     while (1)
     {   
         quaternion_update();
-        vTaskDelay(pdMS_TO_TICKS(200)); // Delay to allow for IMU data update
+        vTaskDelay(pdMS_TO_TICKS(300)); // Delay to allow for IMU data update
     }
 }

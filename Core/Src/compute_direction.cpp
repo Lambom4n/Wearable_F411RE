@@ -1,6 +1,7 @@
 #include "compute_direction.h"
 
 extern QueueHandle_t receive_queue;
+extern QueueHandle_t distance_queue; // Distance queue from LoRa
 
 uint8_t compute_direction()
 {
@@ -51,30 +52,17 @@ uint8_t compute_direction()
 }
 
 // Update the display connected to Arduino
-void direction_task(void *pvParameters)
+void display_task(void *pvParameters)
 {
+    DirectionData direction_data;
     while (1)
     {
         uint8_t direction = compute_direction();
-        switch (direction)
-        {
-        case DIRECTION_FORWARD: 
-            break;
-        case DIRECTION_FORWARD_RIGHT: 
-            break;
-        case DIRECTION_RIGHT: 
-            break;
-        case DIRECTION_BACK_RIGHT: 
-            break;
-        case DIRECTION_BACK: 
-            break;
-        case DIRECTION_BACK_LEFT: 
-            break;
-        case DIRECTION_LEFT:
-            break;
-        case DIRECTION_FORWARD_LEFT: 
-            break;
-        }
-        vTaskDelay(pdMS_TO_TICKS(500));
+        float distance = 0.0f;
+        xQueueReceive(distance_queue, &distance, 0);
+        direction_data.direction = direction;
+        direction_data.distance = distance;
+        custom_printf("Direction: %d, Distance: %.2f\n", direction_data.direction, direction_data.distance);
+        vTaskDelay(pdMS_TO_TICKS(3000)); // Update every 1 second
     }
 }
