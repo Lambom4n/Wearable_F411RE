@@ -320,7 +320,6 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
     BaseType_t status = xTaskCreate(LoRa_Task_send_2, "LoRa_Task_send", 512, NULL, 3, NULL);
     xTaskCreate(quaternion_update_task, "quaternion_update", 512, NULL, 1, NULL);
-    xTaskCreate(display_task, "display_task", 512, NULL, 2, NULL);
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
 }
