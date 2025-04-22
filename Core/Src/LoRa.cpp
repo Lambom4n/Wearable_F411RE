@@ -253,7 +253,7 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
     float rssi_sum = 0.0f;
     float rssi = 0.0f;
     float distance = 0.0f;
-    uint8_t data[5];
+    uint8_t data[4];
     uint8_t count_receive = 0;
     TickType_t start_time = xTaskGetTickCount();
     TickType_t tickcount = xTaskGetTickCount();
@@ -264,7 +264,7 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
             rssi_sum += rssi;
             count_receive++;
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1000)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(500)); // Receive every 1 second
     }
     rssi = rssi_sum / count_receive;
     pl_1m = -rssi;
@@ -298,7 +298,7 @@ void LoRa_Task_receive_1(void *pvParameters)
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1000)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1500)); // Receive every 1 second
     }
 }
 
