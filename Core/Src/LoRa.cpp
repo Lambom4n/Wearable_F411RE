@@ -298,7 +298,7 @@ void LoRa_Task_receive_1(void *pvParameters)
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1500)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Receive every 1 second
     }
 }
 
@@ -312,7 +312,7 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     {   
         LoRa_Send((uint8_t *)data, sizeof(data), SF_2_to_1);
         data[0]++;
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1500)); // Send every 1 second
     }
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
