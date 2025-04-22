@@ -157,6 +157,7 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   xTaskCreate(LoRa_Calibrate_RSSI_rx_1, "LoRa_Calibrate_RSSI_rx", 512, NULL, 1, NULL);
+  xTaskCreate(LoRa_Calibrate_RSSI_tx_2, "LoRa_Calibrate_RSSI_tx", 512, NULL, 1, NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
