@@ -177,3 +177,8 @@
 6	454	7670079210465152	CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj	addf1ed63b27e5f6
 406	629	7670079212234684	RadioLib/libRadioLib.a	287751a348fb92e6
 629	856	7670079213897991	Wearable_F411RE.elf	891dafde38832e63
+8	401	7670093557626967	CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj	addf1ed63b27e5f6
+13	429	7670093557821291	CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj	980b15c09f3c0220
+16	437	7670093557962406	RadioLib/CMakeFiles/RadioLib.dir/__/Core/Src/main.cpp.obj	85d57e33691e7cc2
+437	685	7670093560456063	RadioLib/libRadioLib.a	287751a348fb92e6
+685	934	7670093562339711	Wearable_F411RE.elf	891dafde38832e63

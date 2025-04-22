@@ -118,11 +118,11 @@ int main(void)
   MX_TIM1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  LoRa_Init();
   IMU_init();
   IMU_Calibrate_Accel_Gyro();
   IMU_Calibrate_Mag();
   set_yaw_offset();
+  LoRa_Init();
   // Start the quaternion example task
 
   /* USER CODE END 2 */
@@ -133,7 +133,8 @@ int main(void)
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   Transmit_receive_mutex = xSemaphoreCreateMutex();
-  if (Transmit_receive_mutex == NULL) {
+  if (Transmit_receive_mutex == NULL)
+  {
     // Handle error
     Error_Handler();
   }
@@ -210,9 +211,8 @@ void SystemClock_Config(void)
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
@@ -397,7 +397,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, RESET_Pin|NSS_SPI3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, RESET_Pin | NSS_SPI3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PC13 PC0 PC1 PC2
                            PC3 PC4 PC5 PC6
@@ -410,9 +410,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : PA0 PA1 PA4 PA5
                            PA6 PA7 PA8 PA9
                            PA10 PA11 PA12 PA15 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_4|GPIO_PIN_5
-                          |GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_9
-                          |GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12|GPIO_PIN_15;
+  GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_4 | GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7 | GPIO_PIN_8 | GPIO_PIN_9 | GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -437,7 +435,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : RESET_Pin NSS_SPI3_Pin */
-  GPIO_InitStruct.Pin = RESET_Pin|NSS_SPI3_Pin;
+  GPIO_InitStruct.Pin = RESET_Pin | NSS_SPI3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
