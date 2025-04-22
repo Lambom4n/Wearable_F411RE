@@ -1,3 +1,4 @@
+// IMU_9250.h 
 #ifndef IMU_9250_H
 #define IMU_9250_H
 
@@ -18,6 +19,7 @@
 #define GYRO_CONFIG       0x1B
 #define INT_PIN_CFG       0x37
 #define CONFIG            0x1A
+// #define SMPLRT_DIV 0x19 // Sample Rate Divider Register
 
 // AK8963 Registers
 #define AK8963_CNTL1      0x0A
@@ -28,6 +30,7 @@
 #define AK8963_HYH        0x06
 #define AK8963_HZL        0x07
 #define AK8963_HZH        0x08 
+// #define AK8963_ST1   0x02 
 
 // MPU9250 Accel/Gyro Data Registers
 #define ACCEL_XOUT_H      (0x3B)

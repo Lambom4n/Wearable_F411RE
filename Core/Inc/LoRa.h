@@ -6,6 +6,7 @@
 #include "SX1261.h"
 #include "stm32RadioHal.h"
 #include <math.h>
+#include "quaternion.h"
 extern "C" {
 #include "FreeRTOS.h"
 #include "custom_printf.h"
