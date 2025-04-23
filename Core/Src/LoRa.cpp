@@ -1,6 +1,6 @@
 #include "LoRa.h"
 
-#define SF_2_to_1 10
+#define SF_2_to_1 11
 
 extern SemaphoreHandle_t Transmit_receive_mutex;
 extern UART_HandleTypeDef huart2;
@@ -128,11 +128,11 @@ void LoRa_Init(void)
     int state = lora.begin(
         FREQUENCY, // Frequency (MHz)
         125.0,     // Bandwidth (kHz)
-        9,        // Spreading Factor
+        10,        // Spreading Factor
         5,         // Coding Rate (4/7)
         0x12,      // Sync Word
         14,        // Output Power (dBm)
-        16,        // Preamble Length
+        28,        // Preamble Length
         0,         // TCXO Voltage (0 if not used, e.g., 2.0 for 2V TCXO)
         false      // Use LDO Regulator (false = use DC-DC)
     );
@@ -207,7 +207,6 @@ float LoRa_Get_Distance(float rssi, float snr)
 uint8_t LoRa_Receive(uint8_t *data, uint8_t length, uint8_t SF, float *distance, float *rssi)
 {
     // Receive data through LoRa module
-    xSemaphoreTake(Transmit_receive_mutex, portMAX_DELAY);
     lora.setSpreadingFactor(SF); // Set the spreading factor
     int16_t status = lora.receive(data, length);
     if (status != RADIOLIB_ERR_NONE)
@@ -216,25 +215,22 @@ uint8_t LoRa_Receive(uint8_t *data, uint8_t length, uint8_t SF, float *distance,
         // You may want to handle this error condition
         if (status == RADIOLIB_ERR_RX_TIMEOUT)
         {
-            xSemaphoreGive(Transmit_receive_mutex);
             custom_printf("Timeout receiving data\n");
             return -1;
         }
         else
         {
-            xSemaphoreGive(Transmit_receive_mutex);
             custom_printf("Error receiving data\n");
             return -1;
         }
     }
-    xSemaphoreGive(Transmit_receive_mutex);
     *rssi = lora.getRSSI();
     float snr = lora.getSNR();
-    custom_printf("data received: ");
-    for (uint8_t i = 0; i < length; i++)
-    {
-        custom_printf("%d ", data[i]);
-    }
+    // custom_printf("data received: ");
+    // for (uint8_t i = 0; i < length; i++)
+    // {
+    //     custom_printf("%d ", data[i]);
+    // }
     custom_printf("SNR: %.2f\n", snr);
     // custom_printf("Received data:\n");
     // for (uint8_t i = 0; i < length; i++) {
@@ -242,8 +238,7 @@ uint8_t LoRa_Receive(uint8_t *data, uint8_t length, uint8_t SF, float *distance,
     // }
     // custom_printf("\n");
     *distance = LoRa_Get_Distance(*rssi, snr);
-    custom_printf("RSSI: %.2f\n", *rssi);
-    custom_printf("Distance: %.2f\n\n", *distance);
+    // custom_printf("RSSI: %.2f\n", *rssi);
     return 0;
 }
 
@@ -297,10 +292,11 @@ void LoRa_Task_receive_1(void *pvParameters)
         if (LoRa_Receive(data_receive, sizeof(data_receive), SF_2_to_1, &distance, &rssi) == 0)
         {
             memcpy(&yaw_data, data_receive, sizeof(yaw_data));
+            custom_printf("Received data: %.2f\n", yaw_data);
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Receive every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1700)); // Receive every 1 second
     }
 }
 
@@ -338,7 +334,7 @@ void LoRa_Task_send_2(void *pvParameters)
         memcpy(data, &yaw_data, sizeof(yaw_data));
         custom_printf("Sending data: %.2f\n", yaw_data);
         LoRa_Send((uint8_t *)data, sizeof(data), SF_2_to_1);
-        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Send every 1 second
+        vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Send every 3 second
     }
 }
 

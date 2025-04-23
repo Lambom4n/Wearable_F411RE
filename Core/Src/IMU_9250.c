@@ -242,7 +242,6 @@ void IMU_Read_Accel(float *ax, float *ay, float *az)
     *ax = (float)raw_ax * accel_division_factor;
     *ay = (float)raw_ay * accel_division_factor;
     *az = (float)raw_az * accel_division_factor;
-    custom_printf("ax: %f, ay: %f, az: %f\n", *ax, *ay, *az);
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 
@@ -275,7 +274,6 @@ void IMU_Read_Gyro(float *gx, float *gy, float *gz)
     *gx = (float)raw_gx * gyro_division_factor;
     *gy = (float)raw_gy * gyro_division_factor;
     *gz = (float)raw_gz * gyro_division_factor;
-    custom_printf("gx: %f, gy: %f, gz: %f\n", *gx, *gy, *gz);
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 
@@ -311,7 +309,6 @@ void IMU_Read_Mag(float *mx, float *my, float *mz)
     *mx = cal_mx * mag_division_factor;
     *my = cal_my * mag_division_factor;
     *mz = cal_mz * mag_division_factor;
-    custom_printf("mx: %f, my: %f, mz: %f\n", *mx, *my, *mz);
     vTaskDelay(pdMS_TO_TICKS(10));
 }
 
