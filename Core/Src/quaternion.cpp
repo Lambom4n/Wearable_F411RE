@@ -158,10 +158,11 @@ void quaternion_print_data()
 
 void quaternion_update_task(void *pvParameters)
 {
+    quaternion_init();
     while (1)
     {   
         quaternion_update();
         custom_printf("Update quaternion\n");
-        vTaskDelay(pdMS_TO_TICKS(1000)); // Delay to allow for IMU data update
+        vTaskDelay(pdMS_TO_TICKS(3000)); // Delay to allow for IMU data update
     }
 }

@@ -485,7 +485,7 @@ Discarded input sections
  .rodata._ZL8MacTable
                 0x00000000       0x73 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
  .text._Z9LoRa_SendPhhh
-                0x00000000       0x68 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
+                0x00000000       0x48 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
  .text._Z24LoRa_Calibrate_RSSI_tx_2Pv
                 0x00000000       0xe0 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
  .text._Z16LoRa_Task_send_2Pv
@@ -1039,7 +1039,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x17 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
  .debug_macro   0x00000000       0x17 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
  .debug_line    0x00000000      0xdd5 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
- .debug_str     0x00000000    0x9bec3 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
+ .debug_str     0x00000000    0x9beee CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
  .debug_frame   0x00000000       0x30 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion_example.cpp.obj
  .ARM.attributes
@@ -2746,7 +2746,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_line    0x00000000      0x990 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
- .debug_str     0x00000000    0x8a210 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
+ .debug_str     0x00000000    0x8a23b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .debug_frame   0x00000000      0x118 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c.obj
  .ARM.attributes
@@ -2883,7 +2883,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .debug_line    0x00000000      0x98f CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
- .debug_str     0x00000000    0x8a266 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
+ .debug_str     0x00000000    0x8a291 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .debug_frame   0x00000000      0x274 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c.obj
  .ARM.attributes
@@ -3029,7 +3029,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .debug_line    0x00000000      0xa98 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
- .debug_str     0x00000000    0x8a389 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
+ .debug_str     0x00000000    0x8a3b4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .debug_frame   0x00000000      0x334 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c.obj
  .ARM.attributes
@@ -3132,7 +3132,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .debug_line    0x00000000      0x62a CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
- .debug_str     0x00000000    0x8a0b0 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
+ .debug_str     0x00000000    0x8a0db CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .debug_frame   0x00000000       0xb0 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c.obj
  .ARM.attributes
@@ -3335,7 +3335,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .debug_line    0x00000000     0x1254 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
- .debug_str     0x00000000    0x8a24a CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
+ .debug_str     0x00000000    0x8a275 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .debug_frame   0x00000000       0xac CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c.obj
  .ARM.attributes
@@ -3469,7 +3469,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .debug_line    0x00000000      0xe45 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
- .debug_str     0x00000000    0x8a490 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
+ .debug_str     0x00000000    0x8a4bb CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .debug_frame   0x00000000      0x250 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c.obj
  .ARM.attributes
@@ -3605,7 +3605,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .debug_line    0x00000000      0x7e7 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
- .debug_str     0x00000000    0x8a2be CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
+ .debug_str     0x00000000    0x8a2e9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .debug_frame   0x00000000      0x264 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c.obj
  .ARM.attributes
@@ -3727,7 +3727,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .debug_line    0x00000000      0x7b1 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
- .debug_str     0x00000000    0x8a239 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
+ .debug_str     0x00000000    0x8a264 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .debug_frame   0x00000000      0x15c CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c.obj
  .ARM.attributes
@@ -4125,7 +4125,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .debug_line    0x00000000      0x8e1 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
- .debug_str     0x00000000    0x8a0e2 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
+ .debug_str     0x00000000    0x8a10d CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .debug_frame   0x00000000      0x174 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c.obj
  .ARM.attributes
@@ -4462,7 +4462,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x2aa CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
  .debug_macro   0x00000000      0x126 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
  .debug_line    0x00000000      0x662 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
- .debug_str     0x00000000    0x8a458 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
+ .debug_str     0x00000000    0x8a483 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
  .debug_frame   0x00000000       0x60 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c.obj
  .ARM.attributes
@@ -5455,7 +5455,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_macro   0x00000000       0x43 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .debug_line    0x00000000      0x35b CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
- .debug_str     0x00000000     0x84b6 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
+ .debug_str     0x00000000     0x84e1 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
  .ARM.attributes
                 0x00000000       0x34 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
@@ -5564,7 +5564,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_macro   0x00000000       0x91 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_line    0x00000000      0x8b4 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
- .debug_str     0x00000000     0xba6c CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
+ .debug_str     0x00000000     0xba97 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .debug_frame   0x00000000      0x23c CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c.obj
  .ARM.attributes
@@ -5876,7 +5876,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xaa CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_macro   0x00000000       0x18 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_line    0x00000000      0xd1e CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
- .debug_str     0x00000000     0xbacc CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
+ .debug_str     0x00000000     0xbaf7 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .comment       0x00000000       0x46 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .debug_frame   0x00000000      0x3c8 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c.obj
  .ARM.attributes
@@ -11728,93 +11728,93 @@ LOAD C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb
 LOAD C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x40fd7
+.debug_info     0x00000000    0x40fa5
  .debug_info    0x00000000      0xd10 CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj
- .debug_info    0x00000d10     0x3989 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
- .debug_info    0x00004699      0x75f CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
- .debug_info    0x00004df8     0x1d9f CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
- .debug_info    0x00006b97     0x1d6a CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
- .debug_info    0x00008901     0x27c1 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
- .debug_info    0x0000b0c2     0x4281 CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
- .debug_info    0x0000f343       0x98 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
- .debug_info    0x0000f3db      0x6ea CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_info    0x0000fac5     0x14e0 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_info    0x00010fa5      0xb83 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_info    0x00011b28      0x8f0 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_info    0x00012418      0x6f9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_info    0x00012b11      0xcfc CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_info    0x0001380d      0x8c4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_info    0x000140d1     0x2426 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
- .debug_info    0x000164f7     0x1530 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_info    0x00017a27     0x2996 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_info    0x0001a3bd     0x14d4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_info    0x0001b891     0x2f56 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_info    0x0001e7e7      0x53e CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_info    0x0001ed25      0x2af CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_info    0x0001efd4     0x1b79 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_info    0x00020b4d     0x2200 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_info    0x00022d4d     0x1488 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_info    0x000241d5     0x39f0 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_info    0x00027bc5      0x4d5 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_info    0x0002809a      0x4de CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_info    0x00028578      0x168 CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
- .debug_info    0x000286e0      0x6a3 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
- .debug_info    0x00028d83       0x30 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
- .debug_info    0x00028db3     0x122c RadioLib/libRadioLib.a(Hal.cpp.obj)
- .debug_info    0x00029fdf     0x10d5 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
- .debug_info    0x0002b0b4     0x1a71 RadioLib/libRadioLib.a(Module.cpp.obj)
- .debug_info    0x0002cb25     0x3780 RadioLib/libRadioLib.a(SX1262.cpp.obj)
- .debug_info    0x000302a5     0x6d7c RadioLib/libRadioLib.a(SX126x.cpp.obj)
- .debug_info    0x00037021     0x1c58 RadioLib/libRadioLib.a(SX1261.cpp.obj)
- .debug_info    0x00038c79     0x2d5a RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
- .debug_info    0x0003b9d3     0x2904 RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
- .debug_info    0x0003e2d7      0xf85 RadioLib/libRadioLib.a(CRC.cpp.obj)
- .debug_info    0x0003f25c     0x1572 RadioLib/libRadioLib.a(FEC.cpp.obj)
- .debug_info    0x000407ce      0x809 RadioLib/libRadioLib.a(Utils.cpp.obj)
+ .debug_info    0x00000d10     0x3957 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
+ .debug_info    0x00004667      0x75f CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
+ .debug_info    0x00004dc6     0x1d9f CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
+ .debug_info    0x00006b65     0x1d6a CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
+ .debug_info    0x000088cf     0x27c1 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
+ .debug_info    0x0000b090     0x4281 CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
+ .debug_info    0x0000f311       0x98 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
+ .debug_info    0x0000f3a9      0x6ea CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_info    0x0000fa93     0x14e0 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_info    0x00010f73      0xb83 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_info    0x00011af6      0x8f0 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_info    0x000123e6      0x6f9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_info    0x00012adf      0xcfc CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_info    0x000137db      0x8c4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_info    0x0001409f     0x2426 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
+ .debug_info    0x000164c5     0x1530 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_info    0x000179f5     0x2996 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_info    0x0001a38b     0x14d4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_info    0x0001b85f     0x2f56 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_info    0x0001e7b5      0x53e CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_info    0x0001ecf3      0x2af CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_info    0x0001efa2     0x1b79 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_info    0x00020b1b     0x2200 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_info    0x00022d1b     0x1488 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_info    0x000241a3     0x39f0 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_info    0x00027b93      0x4d5 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_info    0x00028068      0x4de CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_info    0x00028546      0x168 CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
+ .debug_info    0x000286ae      0x6a3 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
+ .debug_info    0x00028d51       0x30 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
+ .debug_info    0x00028d81     0x122c RadioLib/libRadioLib.a(Hal.cpp.obj)
+ .debug_info    0x00029fad     0x10d5 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
+ .debug_info    0x0002b082     0x1a71 RadioLib/libRadioLib.a(Module.cpp.obj)
+ .debug_info    0x0002caf3     0x3780 RadioLib/libRadioLib.a(SX1262.cpp.obj)
+ .debug_info    0x00030273     0x6d7c RadioLib/libRadioLib.a(SX126x.cpp.obj)
+ .debug_info    0x00036fef     0x1c58 RadioLib/libRadioLib.a(SX1261.cpp.obj)
+ .debug_info    0x00038c47     0x2d5a RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
+ .debug_info    0x0003b9a1     0x2904 RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
+ .debug_info    0x0003e2a5      0xf85 RadioLib/libRadioLib.a(CRC.cpp.obj)
+ .debug_info    0x0003f22a     0x1572 RadioLib/libRadioLib.a(FEC.cpp.obj)
+ .debug_info    0x0004079c      0x809 RadioLib/libRadioLib.a(Utils.cpp.obj)
 
-.debug_abbrev   0x00000000     0x82ea
+.debug_abbrev   0x00000000     0x82e9
  .debug_abbrev  0x00000000      0x29e CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj
- .debug_abbrev  0x0000029e      0x721 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
- .debug_abbrev  0x000009bf      0x1dd CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
- .debug_abbrev  0x00000b9c      0x2cb CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
- .debug_abbrev  0x00000e67      0x3cb CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
- .debug_abbrev  0x00001232      0x455 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
- .debug_abbrev  0x00001687      0x5cd CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
- .debug_abbrev  0x00001c54       0x45 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
- .debug_abbrev  0x00001c99      0x1a7 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_abbrev  0x00001e40      0x23a CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_abbrev  0x0000207a      0x207 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x00002281      0x2b6 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_abbrev  0x00002537      0x1d3 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_abbrev  0x0000270a      0x31d CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_abbrev  0x00002a27      0x24b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_abbrev  0x00002c72      0x2bc CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
- .debug_abbrev  0x00002f2e      0x276 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_abbrev  0x000031a4      0x28b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_abbrev  0x0000342f      0x296 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_abbrev  0x000036c5      0x31b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_abbrev  0x000039e0      0x11a CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_abbrev  0x00003afa       0xf5 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_abbrev  0x00003bef      0x3b6 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_abbrev  0x00003fa5      0x39d CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_abbrev  0x00004342      0x352 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_abbrev  0x00004694      0x539 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_abbrev  0x00004bcd      0x21d CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x00004dea      0x25c CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_abbrev  0x00005046       0xbc CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
- .debug_abbrev  0x00005102      0x1b6 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
- .debug_abbrev  0x000052b8       0x24 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
- .debug_abbrev  0x000052dc      0x35b RadioLib/libRadioLib.a(Hal.cpp.obj)
- .debug_abbrev  0x00005637      0x2c6 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
- .debug_abbrev  0x000058fd      0x448 RadioLib/libRadioLib.a(Module.cpp.obj)
- .debug_abbrev  0x00005d45      0x596 RadioLib/libRadioLib.a(SX1262.cpp.obj)
- .debug_abbrev  0x000062db      0x6a4 RadioLib/libRadioLib.a(SX126x.cpp.obj)
- .debug_abbrev  0x0000697f      0x4e5 RadioLib/libRadioLib.a(SX1261.cpp.obj)
- .debug_abbrev  0x00006e64      0x50c RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
- .debug_abbrev  0x00007370      0x52d RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
- .debug_abbrev  0x0000789d      0x3d0 RadioLib/libRadioLib.a(CRC.cpp.obj)
- .debug_abbrev  0x00007c6d      0x492 RadioLib/libRadioLib.a(FEC.cpp.obj)
- .debug_abbrev  0x000080ff      0x1eb RadioLib/libRadioLib.a(Utils.cpp.obj)
+ .debug_abbrev  0x0000029e      0x720 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
+ .debug_abbrev  0x000009be      0x1dd CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
+ .debug_abbrev  0x00000b9b      0x2cb CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
+ .debug_abbrev  0x00000e66      0x3cb CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
+ .debug_abbrev  0x00001231      0x455 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
+ .debug_abbrev  0x00001686      0x5cd CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
+ .debug_abbrev  0x00001c53       0x45 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
+ .debug_abbrev  0x00001c98      0x1a7 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_abbrev  0x00001e3f      0x23a CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_abbrev  0x00002079      0x207 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x00002280      0x2b6 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00002536      0x1d3 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_abbrev  0x00002709      0x31d CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_abbrev  0x00002a26      0x24b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_abbrev  0x00002c71      0x2bc CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
+ .debug_abbrev  0x00002f2d      0x276 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_abbrev  0x000031a3      0x28b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_abbrev  0x0000342e      0x296 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x000036c4      0x31b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_abbrev  0x000039df      0x11a CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_abbrev  0x00003af9       0xf5 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_abbrev  0x00003bee      0x3b6 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_abbrev  0x00003fa4      0x39d CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_abbrev  0x00004341      0x352 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_abbrev  0x00004693      0x539 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_abbrev  0x00004bcc      0x21d CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x00004de9      0x25c CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_abbrev  0x00005045       0xbc CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
+ .debug_abbrev  0x00005101      0x1b6 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
+ .debug_abbrev  0x000052b7       0x24 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
+ .debug_abbrev  0x000052db      0x35b RadioLib/libRadioLib.a(Hal.cpp.obj)
+ .debug_abbrev  0x00005636      0x2c6 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
+ .debug_abbrev  0x000058fc      0x448 RadioLib/libRadioLib.a(Module.cpp.obj)
+ .debug_abbrev  0x00005d44      0x596 RadioLib/libRadioLib.a(SX1262.cpp.obj)
+ .debug_abbrev  0x000062da      0x6a4 RadioLib/libRadioLib.a(SX126x.cpp.obj)
+ .debug_abbrev  0x0000697e      0x4e5 RadioLib/libRadioLib.a(SX1261.cpp.obj)
+ .debug_abbrev  0x00006e63      0x50c RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
+ .debug_abbrev  0x0000736f      0x52d RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
+ .debug_abbrev  0x0000789c      0x3d0 RadioLib/libRadioLib.a(CRC.cpp.obj)
+ .debug_abbrev  0x00007c6c      0x492 RadioLib/libRadioLib.a(FEC.cpp.obj)
+ .debug_abbrev  0x000080fe      0x1eb RadioLib/libRadioLib.a(Utils.cpp.obj)
 
 .debug_aranges  0x00000000     0x2640
  .debug_aranges
@@ -12253,94 +12253,94 @@ LOAD C:/PROGRA~2/ARMGNU~1/14EFD8~1.2RE/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb
  .debug_macro   0x0002ebdf       0x10 RadioLib/libRadioLib.a(Utils.cpp.obj)
  .debug_macro   0x0002ebef      0x4cc RadioLib/libRadioLib.a(Utils.cpp.obj)
 
-.debug_line     0x00000000    0x2c92a
+.debug_line     0x00000000    0x2c926
  .debug_line    0x00000000      0xce9 CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj
- .debug_line    0x00000ce9     0x1be7 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
- .debug_line    0x000028d0      0x6e8 CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
- .debug_line    0x00002fb8     0x1141 CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
- .debug_line    0x000040f9     0x10f3 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
- .debug_line    0x000051ec     0x1751 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
- .debug_line    0x0000693d     0x1a2a CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
- .debug_line    0x00008367      0x80c CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
- .debug_line    0x00008b73      0x8ba CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x0000942d      0x94b CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x00009d78      0x667 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_line    0x0000a3df      0xce8 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_line    0x0000b0c7      0x9f5 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_line    0x0000babc      0xba9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_line    0x0000c665      0x8d9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x0000cf3e     0x398b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
- .debug_line    0x000108c9     0x1b6e CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_line    0x00012437     0x3420 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_line    0x00015857     0x17d4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_line    0x0001702b     0x23e8 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_line    0x00019413      0x66c CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_line    0x00019a7f      0x4e1 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x00019f60     0x1452 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_line    0x0001b3b2     0x19da CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x0001cd8c      0xb21 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_line    0x0001d8ad     0x2341 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_line    0x0001fbee      0x6f8 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x000202e6      0x610 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_line    0x000208f6      0x283 CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
- .debug_line    0x00020b79      0x5a7 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
- .debug_line    0x00021120       0x7a CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
- .debug_line    0x0002119a      0x888 RadioLib/libRadioLib.a(Hal.cpp.obj)
- .debug_line    0x00021a22      0x9c0 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
- .debug_line    0x000223e2     0x12db RadioLib/libRadioLib.a(Module.cpp.obj)
- .debug_line    0x000236bd      0xf81 RadioLib/libRadioLib.a(SX1262.cpp.obj)
- .debug_line    0x0002463e     0x3727 RadioLib/libRadioLib.a(SX126x.cpp.obj)
- .debug_line    0x00027d65      0x9fd RadioLib/libRadioLib.a(SX1261.cpp.obj)
- .debug_line    0x00028762     0x12af RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
- .debug_line    0x00029a11     0x111f RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
- .debug_line    0x0002ab30      0x95c RadioLib/libRadioLib.a(CRC.cpp.obj)
- .debug_line    0x0002b48c      0xf80 RadioLib/libRadioLib.a(FEC.cpp.obj)
- .debug_line    0x0002c40c      0x51e RadioLib/libRadioLib.a(Utils.cpp.obj)
+ .debug_line    0x00000ce9     0x1be3 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
+ .debug_line    0x000028cc      0x6e8 CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
+ .debug_line    0x00002fb4     0x1141 CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
+ .debug_line    0x000040f5     0x10f3 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
+ .debug_line    0x000051e8     0x1751 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
+ .debug_line    0x00006939     0x1a2a CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
+ .debug_line    0x00008363      0x80c CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
+ .debug_line    0x00008b6f      0x8ba CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x00009429      0x94b CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x00009d74      0x667 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_line    0x0000a3db      0xce8 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_line    0x0000b0c3      0x9f5 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_line    0x0000bab8      0xba9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_line    0x0000c661      0x8d9 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_line    0x0000cf3a     0x398b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
+ .debug_line    0x000108c5     0x1b6e CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_line    0x00012433     0x3420 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_line    0x00015853     0x17d4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_line    0x00017027     0x23e8 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_line    0x0001940f      0x66c CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_line    0x00019a7b      0x4e1 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x00019f5c     0x1452 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_line    0x0001b3ae     0x19da CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x0001cd88      0xb21 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_line    0x0001d8a9     0x2341 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_line    0x0001fbea      0x6f8 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x000202e2      0x610 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_line    0x000208f2      0x283 CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
+ .debug_line    0x00020b75      0x5a7 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
+ .debug_line    0x0002111c       0x7a CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
+ .debug_line    0x00021196      0x888 RadioLib/libRadioLib.a(Hal.cpp.obj)
+ .debug_line    0x00021a1e      0x9c0 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
+ .debug_line    0x000223de     0x12db RadioLib/libRadioLib.a(Module.cpp.obj)
+ .debug_line    0x000236b9      0xf81 RadioLib/libRadioLib.a(SX1262.cpp.obj)
+ .debug_line    0x0002463a     0x3727 RadioLib/libRadioLib.a(SX126x.cpp.obj)
+ .debug_line    0x00027d61      0x9fd RadioLib/libRadioLib.a(SX1261.cpp.obj)
+ .debug_line    0x0002875e     0x12af RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
+ .debug_line    0x00029a0d     0x111f RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
+ .debug_line    0x0002ab2c      0x95c RadioLib/libRadioLib.a(CRC.cpp.obj)
+ .debug_line    0x0002b488      0xf80 RadioLib/libRadioLib.a(FEC.cpp.obj)
+ .debug_line    0x0002c408      0x51e RadioLib/libRadioLib.a(Utils.cpp.obj)
 
-.debug_str      0x00000000    0xd6d87
- .debug_str     0x00000000    0xd6d87 CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj
-                              0x918c4 (size before relaxing)
- .debug_str     0x000d6d87    0xc55ba CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
- .debug_str     0x000d6d87    0x8d74e CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
- .debug_str     0x000d6d87    0x11196 CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
- .debug_str     0x000d6d87    0x9cc40 CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
- .debug_str     0x000d6d87    0xc491a CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
- .debug_str     0x000d6d87    0xc72a9 CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
- .debug_str     0x000d6d87    0x92338 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
- .debug_str     0x000d6d87    0x9294d CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_str     0x000d6d87    0x9349d CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_str     0x000d6d87    0x8aa27 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
- .debug_str     0x000d6d87    0x8a4bc CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_str     0x000d6d87    0x8a203 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_str     0x000d6d87    0x8a81e CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_str     0x000d6d87    0x8aab4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_str     0x000d6d87    0x8b099 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
- .debug_str     0x000d6d87    0x8a934 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_str     0x000d6d87    0x8b400 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_str     0x000d6d87    0x8ac0c CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
- .debug_str     0x000d6d87    0x8aa8b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
- .debug_str     0x000d6d87    0x8a088 CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_str     0x000d6d87     0xa5d3 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_str     0x000d6d87     0xc0c3 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
- .debug_str     0x000d6d87     0xcb95 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_str     0x000d6d87     0xc645 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
- .debug_str     0x000d6d87    0x9454c CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
- .debug_str     0x000d6d87     0xaf15 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_str     0x000d6d87     0x87cf CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
- .debug_str     0x000d6d87     0x713f CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
- .debug_str     0x000d6d87     0x943a CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
- .debug_str     0x000d6d87       0x80 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
- .debug_str     0x000d6d87    0x902bf RadioLib/libRadioLib.a(Hal.cpp.obj)
- .debug_str     0x000d6d87    0x931d4 RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
- .debug_str     0x000d6d87    0x928cf RadioLib/libRadioLib.a(Module.cpp.obj)
- .debug_str     0x000d6d87    0x9f1a2 RadioLib/libRadioLib.a(SX1262.cpp.obj)
- .debug_str     0x000d6d87    0xa0791 RadioLib/libRadioLib.a(SX126x.cpp.obj)
- .debug_str     0x000d6d87    0x973ff RadioLib/libRadioLib.a(SX1261.cpp.obj)
- .debug_str     0x000d6d87    0x9e7dc RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
- .debug_str     0x000d6d87    0x93a2b RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
- .debug_str     0x000d6d87    0x9288e RadioLib/libRadioLib.a(CRC.cpp.obj)
- .debug_str     0x000d6d87    0x92add RadioLib/libRadioLib.a(FEC.cpp.obj)
- .debug_str     0x000d6d87     0xd5ec RadioLib/libRadioLib.a(Utils.cpp.obj)
+.debug_str      0x00000000    0xd6ddd
+ .debug_str     0x00000000    0xd6ddd CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj
+                              0x918ef (size before relaxing)
+ .debug_str     0x000d6ddd    0xc55a8 CMakeFiles/Wearable_F411RE.dir/Core/Src/LoRa.cpp.obj
+ .debug_str     0x000d6ddd    0x8d779 CMakeFiles/Wearable_F411RE.dir/Core/Src/custom_printf.c.obj
+ .debug_str     0x000d6ddd    0x111c1 CMakeFiles/Wearable_F411RE.dir/Core/Src/MadgwickAHRS.cpp.obj
+ .debug_str     0x000d6ddd    0x9cc6b CMakeFiles/Wearable_F411RE.dir/Core/Src/quaternion.cpp.obj
+ .debug_str     0x000d6ddd    0xc4945 CMakeFiles/Wearable_F411RE.dir/Core/Src/compute_direction.cpp.obj
+ .debug_str     0x000d6ddd    0xc72d4 CMakeFiles/Wearable_F411RE.dir/Core/Src/main.cpp.obj
+ .debug_str     0x000d6ddd    0x92363 CMakeFiles/Wearable_F411RE.dir/Core/Src/freertos.c.obj
+ .debug_str     0x000d6ddd    0x92978 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x000d6ddd    0x934c8 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x000d6ddd    0x8aa52 CMakeFiles/Wearable_F411RE.dir/Core/Src/stm32f4xx_hal_timebase_tim.c.obj
+ .debug_str     0x000d6ddd    0x8a4e7 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x000d6ddd    0x8a22e CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x000d6ddd    0x8a849 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x000d6ddd    0x8aadf CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x000d6ddd    0x8b0c4 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c.obj
+ .debug_str     0x000d6ddd    0x8a95f CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_str     0x000d6ddd    0x8b42b CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x000d6ddd    0x8ac37 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
+ .debug_str     0x000d6ddd    0x8aab6 CMakeFiles/Wearable_F411RE.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c.obj
+ .debug_str     0x000d6ddd    0x8a0b3 CMakeFiles/Wearable_F411RE.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_str     0x000d6ddd     0xa5fe CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x000d6ddd     0xc0ee CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/queue.c.obj
+ .debug_str     0x000d6ddd     0xcbc0 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x000d6ddd     0xc670 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/timers.c.obj
+ .debug_str     0x000d6ddd    0x94577 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+ .debug_str     0x000d6ddd     0xaf40 CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x000d6ddd     0x87fa CMakeFiles/Wearable_F411RE.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c.obj
+ .debug_str     0x000d6ddd     0x716a CMakeFiles/Wearable_F411RE.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x000d6ddd     0x9465 CMakeFiles/Wearable_F411RE.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x000d6ddd       0x80 CMakeFiles/Wearable_F411RE.dir/startup_stm32f411xe.s.obj
+ .debug_str     0x000d6ddd    0x902ea RadioLib/libRadioLib.a(Hal.cpp.obj)
+ .debug_str     0x000d6ddd    0x931ff RadioLib/libRadioLib.a(stm32RadioHal.cpp.obj)
+ .debug_str     0x000d6ddd    0x928fa RadioLib/libRadioLib.a(Module.cpp.obj)
+ .debug_str     0x000d6ddd    0x9f1cd RadioLib/libRadioLib.a(SX1262.cpp.obj)
+ .debug_str     0x000d6ddd    0xa07bc RadioLib/libRadioLib.a(SX126x.cpp.obj)
+ .debug_str     0x000d6ddd    0x9742a RadioLib/libRadioLib.a(SX1261.cpp.obj)
+ .debug_str     0x000d6ddd    0x9e807 RadioLib/libRadioLib.a(SX126x_LR_FHSS.cpp.obj)
+ .debug_str     0x000d6ddd    0x93a56 RadioLib/libRadioLib.a(PhysicalLayer.cpp.obj)
+ .debug_str     0x000d6ddd    0x928b9 RadioLib/libRadioLib.a(CRC.cpp.obj)
+ .debug_str     0x000d6ddd    0x92b08 RadioLib/libRadioLib.a(FEC.cpp.obj)
+ .debug_str     0x000d6ddd     0xd617 RadioLib/libRadioLib.a(Utils.cpp.obj)
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 CMakeFiles/Wearable_F411RE.dir/Core/Src/IMU_9250.c.obj

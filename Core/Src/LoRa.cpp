@@ -2,7 +2,6 @@
 
 #define SF_2_to_1 11
 
-extern SemaphoreHandle_t Transmit_receive_mutex;
 extern UART_HandleTypeDef huart2;
 
 STM32RadioHal hal(0, 1, 0, 1, 1, 0);
@@ -178,10 +177,8 @@ void LoRa_Init(void)
 void LoRa_Send(uint8_t *data, uint8_t length, uint8_t SF)
 {   
     // Send data through LoRa module
-    xSemaphoreTake(Transmit_receive_mutex, portMAX_DELAY);
     lora.setSpreadingFactor(SF); // Set the spreading factor
     int state = lora.transmit(data, length);
-    xSemaphoreGive(Transmit_receive_mutex);
     if (state != RADIOLIB_ERR_NONE)
     {
         // There was a problem transmitting the data
