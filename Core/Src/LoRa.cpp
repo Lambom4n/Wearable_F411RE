@@ -241,7 +241,7 @@ uint8_t LoRa_Receive(uint8_t *data, uint8_t length, float *distance, float *rssi
 }
 
 
-void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
+void LoRa_Calibrate_RSSI_rx(void *pvParameters)
 {
     float rssi_sum = 0.0f;
     float rssi = 0.0f;
@@ -269,14 +269,14 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
     custom_printf("----------------------\n");
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
-    BaseType_t status = xTaskCreate(LoRa_Task_receive_1, "LoRa_Task_receive", 512, NULL, 3, NULL);
+    BaseType_t status = xTaskCreate(LoRa_Task_receive, "LoRa_Task_receive", 512, NULL, 3, NULL);
     xTaskCreate(quaternion_update_task, "quaternion_update", 512, NULL, 1, NULL);
     xTaskCreate(display_task, "display_task", 512, NULL, 2, NULL);
     vTaskDelete(NULL);
 }
 
 
-void LoRa_Task_receive_1(void *pvParameters)
+void LoRa_Task_receive(void *pvParameters)
 {
     uint8_t data_receive[4] = {0};
     float distance = 0.0f;
@@ -290,7 +290,6 @@ void LoRa_Task_receive_1(void *pvParameters)
         if (LoRa_Receive(data_receive, sizeof(data_receive), &distance, &rssi) == 0)
         {
             memcpy(&yaw_data, data_receive, sizeof(yaw_data));
-            // custom_printf("Received data: %.2f\n", yaw_data);
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
@@ -299,7 +298,7 @@ void LoRa_Task_receive_1(void *pvParameters)
 }
 
 
-void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
+void LoRa_Calibrate_RSSI_tx(void *pvParameters)
 {   
     uint8_t data[4] = {0x01, 0x02, 0x03, 0x00};
     uint32_t start_time = xTaskGetTickCount();
@@ -312,14 +311,14 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     }
     swf_init(&swf);
     ema_init(&ema, pl_1m); // Initialize EMA filter with initial value pl_1m
-    BaseType_t status = xTaskCreate(LoRa_Task_send_2, "LoRa_Task_send", 512, NULL, 3, NULL);
+    BaseType_t status = xTaskCreate(LoRa_Task_send, "LoRa_Task_send", 512, NULL, 3, NULL);
     xTaskCreate(quaternion_update_task, "quaternion_update", 512, NULL, 1, NULL);
     custom_printf("Calibration done tx\n");
     vTaskDelete(NULL);
 }
 
 
-void LoRa_Task_send_2(void *pvParameters)
+void LoRa_Task_send(void *pvParameters)
 {
     // Task for LoRa communication
     uint8_t example_data[4] = {0x01, 0x02, 0x03, 0x00};
