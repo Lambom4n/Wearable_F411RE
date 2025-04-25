@@ -4,7 +4,6 @@
 #include "custom_printf.h" // Include the custom printf header
 #include "queue.h"
 
-extern QueueHandle_t receive_queue;
 
 // Define the Madgwick instance
 Madgwick madgwick;
@@ -70,7 +69,7 @@ float quaternion_get_yaw() {
     // Normalize to 0-360 degrees
     yaw = fmodf(yaw, 2 * M_PI);          // Wrap to [-2π, 2π]
     if (yaw < 0) yaw += 2 * M_PI;        // Convert to [0, 2π]
-    return yaw * (180.0f / M_PI);        // Convert to degrees
+    return yaw * (180.0f / M_PI) - 25.0f;        // Convert to degrees
 }
 
 // Get roll angle in radians
@@ -137,6 +136,7 @@ float quaternion_get_yaw_imu_radians()
 void quaternion_print_data()
 {
     // Get the filtered orientation angles
+
     float roll = quaternion_get_roll();
     float pitch = quaternion_get_pitch();
     float yaw = quaternion_get_yaw();
@@ -161,8 +161,10 @@ void quaternion_update_task(void *pvParameters)
     quaternion_init();
     while (1)
     {   
+        IMU_Wake();
         quaternion_update();
-        custom_printf("Update quaternion\n");
+        IMU_Sleep();
+        // custom_printf("Update quaternion\n");
         vTaskDelay(pdMS_TO_TICKS(3000)); // Delay to allow for IMU data update
     }
 }

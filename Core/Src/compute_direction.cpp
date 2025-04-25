@@ -63,6 +63,6 @@ void display_task(void *pvParameters)
         direction_data.direction = direction;
         direction_data.distance = distance;
         custom_printf("Direction: %d, Distance: %.2f\n", direction_data.direction, direction_data.distance);
-        vTaskDelay(pdMS_TO_TICKS(3000)); // Update every 1 second
+        vTaskDelay(pdMS_TO_TICKS(3000)); // Update every 3 second
     }
 }

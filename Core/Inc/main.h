@@ -35,6 +35,7 @@ extern "C" {
 #include "IMU_9250.h"
 #include "FreeRTOS.h"
 #include "semphr.h"
+#include "task.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -49,7 +50,6 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

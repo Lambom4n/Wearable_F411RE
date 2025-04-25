@@ -125,7 +125,8 @@ void IMU_Calibrate_Accel_Gyro(void)
     int32_t sum_gx = 0, sum_gy = 0, sum_gz = 0;
     int32_t count = 100;
     custom_printf("Calibrating accelerometer and gyroscope...\n");
-
+    IMU_Wake();
+    HAL_Delay(10);
     // Collect 1000 samples
     for (int i = 0; i < count; i++)
     {
@@ -140,7 +141,8 @@ void IMU_Calibrate_Accel_Gyro(void)
         sum_gz += gz;
         HAL_Delay(10);
     }
-
+    IMU_Sleep();
+    HAL_Delay(10);
     // Calculate offsets
     accel_offset[0] = (int16_t)(sum_ax / count);
     accel_offset[1] = (int16_t)(sum_ay / count);
@@ -162,6 +164,8 @@ void IMU_Calibrate_Mag(void)
     int16_t mag_max[3] = {-32767, -32767, -32767};
     int16_t mag_min[3] = {32767, 32767, 32767};
     custom_printf("Calibrating magnetometer...\n");
+    IMU_Wake();
+    HAL_Delay(10);
     uint32_t start_time = HAL_GetTick();
     while (HAL_GetTick() - start_time < 10000)
     {
@@ -180,7 +184,8 @@ void IMU_Calibrate_Mag(void)
             mag_max[2] = mz;
         HAL_Delay(10);
     }
-
+    IMU_Sleep();
+    HAL_Delay(10);
     mag_bias[0] = (mag_max[0] + mag_min[0]) / 2.0f;
     mag_bias[1] = (mag_max[1] + mag_min[1]) / 2.0f;
     mag_bias[2] = (mag_max[2] + mag_min[2]) / 2.0f;
@@ -211,6 +216,20 @@ uint8_t IMU_Read_Reg(uint8_t reg)
 void IMU_Write_Reg(uint8_t reg, uint8_t data)
 {
     HAL_I2C_Mem_Write(&hi2c2, MPU9250_ADDRESS << 1, reg, 1, &data, 1, HAL_MAX_DELAY);
+}
+
+void IMU_Sleep() {
+    uint8_t pwr = IMU_Read_Reg(PWR_MGMT_1);
+    pwr |= (1<<6);
+    IMU_Write_Reg(PWR_MGMT_1, pwr);
+    HAL_Delay(1);
+}
+
+void IMU_Wake() {
+    uint8_t pwr = IMU_Read_Reg(PWR_MGMT_1);
+    pwr &= ~(1<<6);
+    IMU_Write_Reg(PWR_MGMT_1, pwr);
+    HAL_Delay(1);
 }
 
 void IMU_Read_Accel_Raw(int16_t *ax, int16_t *ay, int16_t *az)
@@ -276,6 +295,8 @@ void IMU_Read_Gyro(float *gx, float *gy, float *gz)
     *gz = (float)raw_gz * gyro_division_factor;
     vTaskDelay(pdMS_TO_TICKS(10));
 }
+
+
 
 void IMU_Read_Mag_Raw(int16_t *mx, int16_t *my, int16_t *mz)
 {

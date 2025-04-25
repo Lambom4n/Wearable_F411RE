@@ -1,6 +1,5 @@
 #include "LoRa.h"
 
-#define SF_2_to_1 11
 
 extern UART_HandleTypeDef huart2;
 
@@ -12,8 +11,8 @@ QueueHandle_t receive_queue = NULL;
 
 #define TX_POWER 14.0f
 #define FREQUENCY 433.0f
-#define PATH_LOSS_EXPONENT_LOW 1.5f
-#define PATH_LOSS_EXPONENT_MEDIUM 1.8f
+#define PATH_LOSS_EXPONENT_LOW 1.8f
+#define PATH_LOSS_EXPONENT_MEDIUM 2.3f
 #define PATH_LOSS_EXPONENT_HIGH 3.0f
 #define CALIBRATION_DISTANCE 1.0f
 #define CALIBRATION_COUNT 20
@@ -56,7 +55,7 @@ static void swf_init(SlidingWindowFilter *swf)
 static float swf_filter(SlidingWindowFilter *swf, float sample, float snr)
 {
     // Add new sample to circular buffer
-    if (snr >= 2.5)
+    if (snr >= 0.25)
     {
         swf->window[swf->index] = sample;
         swf->index = (swf->index + 1) % WINDOW_SIZE;
@@ -127,7 +126,7 @@ void LoRa_Init(void)
     int state = lora.begin(
         FREQUENCY, // Frequency (MHz)
         125.0,     // Bandwidth (kHz)
-        10,        // Spreading Factor
+        11,        // Spreading Factor
         5,         // Coding Rate (4/7)
         0x12,      // Sync Word
         14,        // Output Power (dBm)
@@ -144,8 +143,8 @@ void LoRa_Init(void)
     }
     // Set path loss exponent based on environment
     custom_printf("Select path loss exponent:\n");
-    custom_printf("1. Low (1.5)\n");
-    custom_printf("2. Medium (1.8)\n");
+    custom_printf("1. Low (1.8)\n");
+    custom_printf("2. Medium (2.3)\n");
     custom_printf("3. High (3.0)\n");
     custom_printf("Enter choice: ");
     uint8_t level = 0;
@@ -155,12 +154,12 @@ void LoRa_Init(void)
     if (strcmp((char *)&level, "1") == 0)
     {
         PATH_LOSS_EXPONENT = PATH_LOSS_EXPONENT_LOW;
-        custom_printf("Path loss exponent set to Low (1.5)\n");
+        custom_printf("Path loss exponent set to Low (1.8)\n");
     }
     else if (strcmp((char *)&level, "2") == 0)
     {
         PATH_LOSS_EXPONENT = PATH_LOSS_EXPONENT_MEDIUM;
-        custom_printf("Path loss exponent set to Medium (1.8)\n");
+        custom_printf("Path loss exponent set to Medium (2.3)\n");
     }
     else if (strcmp((char *)&level, "3") == 0)
     {
@@ -169,16 +168,17 @@ void LoRa_Init(void)
     }
     else
     {
-        custom_printf("Invalid choice. Defaulting to Medium (1.8))\n");
+        custom_printf("Invalid choice. Defaulting to Medium (2.3))\n");
     }
     custom_printf("LoRa module initialized\n");
 }
 
-void LoRa_Send(uint8_t *data, uint8_t length, uint8_t SF)
+void LoRa_Send(uint8_t *data, uint8_t length)
 {   
     // Send data through LoRa module
-    lora.setSpreadingFactor(SF); // Set the spreading factor
+    lora.standby(RADIOLIB_SX126X_STANDBY_RC, true);
     int state = lora.transmit(data, length);
+    lora.sleep(true);
     if (state != RADIOLIB_ERR_NONE)
     {
         // There was a problem transmitting the data
@@ -194,25 +194,26 @@ float LoRa_Get_Distance(float rssi, float snr)
     float pl_d = -rssi;
     float filtered_pl_d = swf_filter(&swf, pl_d, snr);
     float smoothed_pl_d = ema_filter(&ema, filtered_pl_d);
-    custom_printf("Filtered RSSI: %.2f\n", smoothed_pl_d);
+    // custom_printf("Filtered RSSI: %.2f\n", smoothed_pl_d);
     // Apply the formula
     float exponent = (smoothed_pl_d - pl_1m) / (10.0f * PATH_LOSS_EXPONENT);
     float distance = powf(10.0f, exponent);
     return distance;
 }
 
-uint8_t LoRa_Receive(uint8_t *data, uint8_t length, uint8_t SF, float *distance, float *rssi)
+uint8_t LoRa_Receive(uint8_t *data, uint8_t length, float *distance, float *rssi)
 {
     // Receive data through LoRa module
-    lora.setSpreadingFactor(SF); // Set the spreading factor
+    lora.standby(RADIOLIB_SX126X_STANDBY_RC, true);
     int16_t status = lora.receive(data, length);
+    lora.sleep(true);
     if (status != RADIOLIB_ERR_NONE)
     {
         // There was a problem receiving the data
         // You may want to handle this error condition
         if (status == RADIOLIB_ERR_RX_TIMEOUT)
         {
-            custom_printf("Timeout receiving data\n");
+            // custom_printf("Timeout receiving data\n");
             return -1;
         }
         else
@@ -235,7 +236,7 @@ uint8_t LoRa_Receive(uint8_t *data, uint8_t length, uint8_t SF, float *distance,
     // }
     // custom_printf("\n");
     *distance = LoRa_Get_Distance(*rssi, snr);
-    // custom_printf("RSSI: %.2f\n", *rssi);
+    custom_printf("RSSI: %.2f\n", *rssi);
     return 0;
 }
 
@@ -251,7 +252,7 @@ void LoRa_Calibrate_RSSI_rx_1(void *pvParameters)
     TickType_t tickcount = xTaskGetTickCount();
     while (xTaskGetTickCount() - start_time < 20000)
     {
-        if (LoRa_Receive(data, sizeof(data), SF_2_to_1, &distance, &rssi) == 0)
+        if (LoRa_Receive(data, sizeof(data), &distance, &rssi) == 0)
         {
             rssi_sum += rssi;
             count_receive++;
@@ -286,10 +287,10 @@ void LoRa_Task_receive_1(void *pvParameters)
     TickType_t tickcount = xTaskGetTickCount();
     while (1)
     {
-        if (LoRa_Receive(data_receive, sizeof(data_receive), SF_2_to_1, &distance, &rssi) == 0)
+        if (LoRa_Receive(data_receive, sizeof(data_receive), &distance, &rssi) == 0)
         {
             memcpy(&yaw_data, data_receive, sizeof(yaw_data));
-            custom_printf("Received data: %.2f\n", yaw_data);
+            // custom_printf("Received data: %.2f\n", yaw_data);
             xQueueSend(distance_queue, &distance, 0);
             xQueueSend(receive_queue, &yaw_data, 0);
         }
@@ -305,7 +306,7 @@ void LoRa_Calibrate_RSSI_tx_2(void *pvParameters)
     uint32_t tickcount = xTaskGetTickCount();
     while (xTaskGetTickCount() - start_time < 20000)
     {   
-        LoRa_Send((uint8_t *)data, sizeof(data), SF_2_to_1);
+        LoRa_Send((uint8_t *)data, sizeof(data));
         data[0]++;
         vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(1500)); // Send every 1 second
     }
@@ -330,7 +331,7 @@ void LoRa_Task_send_2(void *pvParameters)
         yaw_data = quaternion_get_yaw();
         memcpy(data, &yaw_data, sizeof(yaw_data));
         custom_printf("Sending data: %.2f\n", yaw_data);
-        LoRa_Send((uint8_t *)data, sizeof(data), SF_2_to_1);
+        LoRa_Send((uint8_t *)data, sizeof(data));
         vTaskDelayUntil(&tickcount, pdMS_TO_TICKS(3000)); // Send every 3 second
     }
 }

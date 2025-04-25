@@ -60,6 +60,10 @@ void IMU_Write_Reg(uint8_t reg, uint8_t data);
 void IMU_Calibrate_Accel_Gyro(void);  // Compute accel/gyro biases
 void IMU_Calibrate_Mag(void);  // Compute mag biases
 
+/*sleep and wake*/
+void IMU_Sleep(void);
+void IMU_Wake(void);  // Wake up the IMU
+
 /*Accelerometer*/
 void IMU_Read_Accel_Raw(int16_t *ax, int16_t *ay, int16_t *az);  
 void IMU_Read_Accel(float *ax, float *ay, float *az);  // Scaled to g
