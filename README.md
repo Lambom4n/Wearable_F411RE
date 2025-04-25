@@ -11,7 +11,7 @@ To build and run the project, you need the following:
 - **VS Code with STM32VSCode Extension**
 - **STM32CubeCLT v1.17.0** – for compatibility with STM32 build tools.
 - **STM32CubeMX** – for pin configuration and code generation.
-- **CMake** – as the project build system.
+- **CMake** – as the project build system (minimum 3.22).
 - **ST-Link driver** – for flashing and debugging.
 - **Serial terminal app** (e.g., **PuTTY**) – to monitor device output via the COM port (USB to UART2 through ST-Link).
 
@@ -79,7 +79,7 @@ Main application logic is implemented here, split into headers (`Inc/`) and impl
 - `LoRa.h` – LoRa communication interface, includes calibration task logic.
 - `MadgwickAHRS.h` – Madgwick sensor fusion algorithm header.
 - `main.h` – Function declarations and main setup routines.
-- `quaternion.h`, `quaternion_example.h` – Definitions and examples for quaternion math and operations.
+- `quaternion.h` – Definitions and examples for quaternion math and operations.
 - `stm32f4xx_hal_conf.h`, `stm32f4xx_it.h` – STM32 HAL and interrupt configuration.
 
 #### **Src/**
@@ -91,7 +91,6 @@ Main application logic is implemented here, split into headers (`Inc/`) and impl
 - `MadgwickAHRS.cpp` – Implements sensor fusion filter using Madgwick's algorithm.
 - `main.cpp` – System entry point, initializes peripherals and starts the RTOS scheduler.
 - `quaternion.cpp` – Contains the `quaternion_update` task for real-time orientation tracking.
-- `quaternion_example.cpp` – Simple example of quaternion operations.
 - `stm32f4xx_hal_*.c`, `syscalls.c`, `sysmem.c`, `system_stm32f4xx.c` – HAL interface and system-level configuration for STM32F4.
 
 ---

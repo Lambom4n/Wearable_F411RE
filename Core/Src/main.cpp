@@ -26,7 +26,6 @@
 #include "SX1261.h"
 #include "stm32RadioHal.h"
 #include "LoRa.h"
-#include "quaternion_example.h" // Include the quaternion example header
 #include "quaternion.h"
 #include "compute_direction.h"
 /* USER CODE END Includes */

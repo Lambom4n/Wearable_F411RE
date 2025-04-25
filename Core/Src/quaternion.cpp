@@ -51,15 +51,6 @@ float quaternion_get_pitch()
     return madgwick.getPitch();
 }
 
-// Get yaw angle in degrees
-// float quaternion_get_yaw()
-// {
-//     float yaw = madgwick.getYaw();
-//     yaw -= magnetic_declination;
-//     // Normalize to 0-360
-//     if (yaw < 0) yaw += 360.0f;
-//     return yaw;
-// }
 
 float quaternion_get_yaw() {
     float yaw = madgwick.getYawRadians(); // Get raw yaw in radians
@@ -164,7 +155,6 @@ void quaternion_update_task(void *pvParameters)
         IMU_Wake();
         quaternion_update();
         IMU_Sleep();
-        // custom_printf("Update quaternion\n");
         vTaskDelay(pdMS_TO_TICKS(3000)); // Delay to allow for IMU data update
     }
 }

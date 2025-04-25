@@ -58,7 +58,7 @@ static void swf_init(SlidingWindowFilter *swf)
 // Sliding Window Filter with outlier replacement
 static float swf_filter(SlidingWindowFilter *swf, float sample, float snr)
 {
-    if (snr >= 0.25) // Acceptable signal
+    if (snr >= 0.0) // Acceptable signal
     {
         swf->window[swf->index] = sample;
         swf->index = (swf->index + 1) % WINDOW_SIZE;
